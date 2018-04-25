@@ -2,9 +2,6 @@ import React from 'react';
 
 export default class Home extends React.Component {
 
-	componetWill(){
-		axios('koko/', get);
-	}
 	render() {
 		return (
 			<div>

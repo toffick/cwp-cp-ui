@@ -1,5 +1,4 @@
 import React from 'react';
-import ImgGolos from '../../assets/images/golos.png';
 
 class MainFooter extends React.PureComponent {
 	render() {
@@ -8,7 +7,7 @@ class MainFooter extends React.PureComponent {
 			<footer>
 				<div>
 					<img height={16} src={ImgGolos} alt="" />
-					{currentYear} Graphigram
+					{currentYear} CinRtg
 				</div>
 			</footer>
 		);
