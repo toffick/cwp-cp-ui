@@ -5,6 +5,7 @@ export default new Config().extend('webpack/webpack.base.config.js').merge({
 	output: {
 		filename: 'bundle.js'
 	},
+	devtool: 'cheap-module-source-map',
 	devServer: {
 		hot: true,
 		contentBase: './dist',

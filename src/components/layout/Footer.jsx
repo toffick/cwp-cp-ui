@@ -6,8 +6,7 @@ class MainFooter extends React.PureComponent {
 		return (
 			<footer>
 				<div>
-					<img height={16} src={ImgGolos} alt="" />
-					{currentYear} CinRtg
+					{currentYear} CinRtgn
 				</div>
 			</footer>
 		);

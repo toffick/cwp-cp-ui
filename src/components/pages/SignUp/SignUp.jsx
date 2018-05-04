@@ -1,5 +1,6 @@
 import React from 'react';
 import Input from '../../elements/Input';
+import { validateName, validatePassword } from '../../../helpers/auth';
 
 export default class SignUp extends React.Component {
 	handleSubmit(e) {
@@ -14,10 +15,10 @@ export default class SignUp extends React.Component {
 
 		const name = this.name.value();
 		const password = this.password.value();
-		console.log('SIGN UP with name, password', name, password);
 	}
 
 	render() {
+		console.log(this);
 		return (
 			<div className="auth-page">
 				<form className="auth-wrap" onSubmit={e => this.handleSubmit(e)}>
@@ -26,7 +27,7 @@ export default class SignUp extends React.Component {
 
 					<div className="clearfix">
 						<Input
-							label="Golos nickname"
+							label="Email"
 							requiered
 							ref={(node) => {
 								this.name = node;
@@ -40,7 +41,7 @@ export default class SignUp extends React.Component {
 							ref={(node) => {
 								this.password = node;
 							}}
-							validation={()=>{}}
+							validation={validatePassword}
 						/>
 						<Input
 							label="Confirm password"
@@ -56,15 +57,6 @@ export default class SignUp extends React.Component {
 								if (value !== password) { return 'Passwords are different'; }
 								return null;
 							}}
-						/>
-						<Input
-							label="Your posting private key"
-							type="text"
-							requiered
-							ref={(node) => {
-								this.privateKey = node;
-							}}
-							validation={()=>{}}
 						/>
 						<button type="submit" className="auth-btn-submit"><span>Next</span></button>
 					</div>

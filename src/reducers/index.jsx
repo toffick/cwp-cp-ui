@@ -1,5 +1,5 @@
-import someReducer from './SomeReducer';
+import UserReducer from './UserReducer';
 
 export default {
-	some: someReducer.reducer,
+	user: UserReducer.reducer,
 };

@@ -1,6 +1,5 @@
-import { NavLink, withRouter } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { compose } from 'redux';
 import React from 'react';
 
 class Header extends React.PureComponent {
@@ -8,24 +7,35 @@ class Header extends React.PureComponent {
 		return (
 			<header>
 				<NavLink to="/" exact activeClassName="active">
-					Index Link
+					Home
 				</NavLink>
-				<NavLink to="/sign-up" exact activeClassName="active">
-					Sign Up
+				<NavLink to="/actors" exact activeClassName="active">
+					Actors
 				</NavLink>
-				<NavLink to="/sign-in" exact activeClassName="active">
-					Sign In
-				</NavLink>
+				{this.props.isAuth ?
+					(<div>
+						<NavLink to="/profile" exact activeClassName="active">
+							Profile
+						</NavLink>
+					</div>)
+					:
+					(<div>
+						<NavLink to="/sign-up" exact activeClassName="active">
+							Sign Up
+						</NavLink>
+						<NavLink to="/sign-in" exact activeClassName="active">
+							Sign In
+						</NavLink>
+					</div>)
+				}
 			</header>
 		);
 	}
 }
 
-export default compose(
-	// withRouter,
-	connect(
-		state => ({}),
-		dispatch => ({}),
-	),
+export default connect(
+	state => ({
+		isAuth: state.user.get("isAuth"),
+	}),
+	dispatch => ({}),
 )(Header);
-

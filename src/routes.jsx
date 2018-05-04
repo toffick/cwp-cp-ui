@@ -1,18 +1,24 @@
 import React from 'react';
-import { Redirect, Route, Switch } from 'react-router';
-import AppRoute from './components/AppRoute';
-import SignUp from './components/pages/signUp/SignUp';
-import SignIn from './components/pages/signIn/SignIn';
-import Home from './components/pages/home/Home';
+import { Switch,Route } from "react-router-dom";
+import Home from "./components/pages/Home/Home";
+import SignUp from "./components/pages/SignUp/SignUp";
+import SignIn from "./components/pages/SignIn/SignIn";
+import Actors from "./components/pages/Actors/Actors";
+import Profile from "./components/pages/Profile/Profile";
+import Layout from "./components/layout/Layout";
 
 export default class Routes extends React.Component {
 	render() {
 		return (
-			<Switch>
-				<Route exact path="/"  component={Home} />
-				<Route exact path="/sign-up" component={SignUp} />
-				<Route exact path="/sign-in" component={SignIn} />
-			</Switch>
+			<Layout>
+				<Switch>
+					<Route exact path="/" component={Home}/>
+					<Route exact path="/actors" component={Actors}/>
+					<Route exact path="/profile" component={Profile}/>
+					<Route exact path="/sign-up" component={SignUp}/>
+					<Route exact path="/sign-in" component={SignIn}/>
+				</Switch>
+			</Layout>
 		);
 	}
 }

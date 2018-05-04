@@ -4,9 +4,7 @@ export default class Home extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<h1>Huiiiische</h1>
-			</div>
+			<h1>Home</h1>
 		);
 	}
 

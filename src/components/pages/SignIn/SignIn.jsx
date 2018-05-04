@@ -1,8 +1,9 @@
 import React from 'react';
 import Input from '../../elements/Input';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { Redirect } from 'react-router';
+import { validateName, validatePassword, validatePostingPrivateKey } from '../../../helpers/auth';
+import UserActions from "../../../actions/UserActions";
 
 class SignIn extends React.Component {
 	constructor(props) {
@@ -24,6 +25,7 @@ class SignIn extends React.Component {
 		const password = this.password.value;
 
 		this.props.signIn(name, password);
+		this.props.signIn(name, password);
 	}
 
 	render() {
@@ -41,7 +43,7 @@ class SignIn extends React.Component {
 							<div className="clearfix">
 
 								<Input
-									label="Golos nickname"
+									label="Email"
 									ref={(node) => {
 										this.name = node;
 									}}
@@ -65,13 +67,11 @@ class SignIn extends React.Component {
 	}
 }
 
-SignIn.propTypes = {
-	signIn: PropTypes.func.isRequired,
-};
-
 export default connect(
 	state => ({
+
 	}),
 	dispatch => ({
+		signIn: (email,password) => dispatch(UserActions.signIn(email,password))
 	}),
 )(SignIn);
