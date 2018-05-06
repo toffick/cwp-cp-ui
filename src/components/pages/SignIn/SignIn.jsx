@@ -15,7 +15,7 @@ class SignIn extends React.Component {
 		e.preventDefault();
 		const validateParams = { needToSetState: true };
 		if (this.name.validate(validateParams)
-		  || this.password.validate(validateParams)
+			|| this.password.validate(validateParams)
 		) {
 			e.preventDefault();
 			return;
@@ -25,53 +25,55 @@ class SignIn extends React.Component {
 		const password = this.password.value;
 
 		this.props.signIn(name, password);
-		this.props.signIn(name, password);
 	}
 
 	render() {
+		console.log(this.props.isAuth);
 		if (this.props.isAuth) {
-			return <Redirect to="/chat" />;
+			return <Redirect to="/"/>;
 		}
-		{
-			return (
-				<div className="auth-page">
-					<div className="auth-wrap">
-						<form onSubmit={this.handleSubmit}>
-							<h3 className="auth-wrap-head">Sign in</h3>
-							<p className="auth-wrap-lead">Please enter your login and password.</p>
 
-							<div className="clearfix">
+		return (
+			<div className="auth-page">
+				<div className="auth-wrap">
+					<form onSubmit={this.handleSubmit}>
+						<h3 className="auth-wrap-head">Sign in</h3>
+						<p className="auth-wrap-lead">Please enter your Email and password.</p>
 
-								<Input
-									label="Email"
-									ref={(node) => {
-										this.name = node;
-									}}
-									validation={()=>{}}
-								/>
-								<Input
-									label="Password"
-									type="password"
-									ref={(node) => {
-										this.password = node;
-									}}
-									validation={()=>{}}
-								/>
-							</div>
-							<button type="submit" className="auth-btn-submit"><span>Sign In</span></button>
-						</form>
-					</div>
+						<div className="clearfix">
+
+							<Input
+								label="Email"
+								ref={(node) => {
+									this.name = node;
+								}}
+								validation={() => {
+								}}
+							/>
+							<Input
+								label="Password"
+								type="password"
+								ref={(node) => {
+									this.password = node;
+								}}
+								validation={() => {
+								}}
+							/>
+						</div>
+						<button type="submit" className="auth-btn-submit"><span>Sign In</span></button>
+					</form>
 				</div>
-			);
-		}
+			</div>
+		);
 	}
+
 }
 
 export default connect(
 	state => ({
-
+		isAuth: state.user.get('isAuth')
 	}),
 	dispatch => ({
-		signIn: (email,password) => dispatch(UserActions.signIn(email,password))
+		signIn: (email, password) => dispatch(UserActions.signIn(email, password))
 	}),
 )(SignIn);

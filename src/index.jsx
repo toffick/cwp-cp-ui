@@ -12,7 +12,7 @@ import Routes from "./routes";
 
 const history = createHistory();
 const middleware = routerMiddleware(history);
-
+console.log(SERVER_HOST);
 const store = createStore(
 	combineReducers({
 		...reducers,

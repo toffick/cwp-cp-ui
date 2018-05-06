@@ -2,6 +2,9 @@ import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import Config from 'webpack-config';
+import webpack from 'webpack';
+
+const options = require(`../config.${process.env.NODE_ENV}.json`);
 
 export default new Config().merge({
 	entry: {
@@ -51,6 +54,9 @@ export default new Config().merge({
 		new HtmlWebpackPlugin({
 			template: "./src/assets/index.html",
 			inject: 'body'
-		})
+		}),
+		new webpack.DefinePlugin({
+			SERVER_HOST: JSON.stringify(options.host)
+		}),
 	],
 });
