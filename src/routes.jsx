@@ -1,12 +1,12 @@
 import React from 'react';
 import { Switch,Route } from "react-router-dom";
-import Home from "./components/pages/Home/Home";
-import SignUp from "./components/pages/SignUp/SignUp";
-import SignIn from "./components/pages/SignIn/SignIn";
-import Actors from "./components/pages/Actors/Actors";
-import Profile from "./components/pages/Profile/Profile";
-import Layout from "./components/layout/Layout";
-import { ToastContainer, toast } from 'react-toastify';
+import Home from "./Containers/Views/Home";
+import SignUp from "./Containers/Views/SignUp";
+import SignIn from "./Containers/Views/SignIn";
+import Actors from "./Containers/Views/Actors";
+import Profile from "./Containers/Views/Profile";
+import Layout from "./Containers/Layouts/Layout";
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default class Routes extends React.Component {

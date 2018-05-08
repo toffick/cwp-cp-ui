@@ -1,7 +1,7 @@
 import React from 'react';
-import Input from '../../elements/Input';
-import { validateEmail, validatePassword } from '../../../helpers/auth';
-import UserActions from "../../../actions/UserActions";
+import Input from '../../components/Input';
+import { validateEmail, validatePassword } from '../../helpers/auth';
+import UserActions from "../../actions/UserActions";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 

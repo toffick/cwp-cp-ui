@@ -1,5 +1,5 @@
 import React from 'react';
-import UserActions from "../../../actions/UserActions";
+import UserActions from "../../actions/UserActions";
 import { connect } from "react-redux";
 
 class Profile extends React.Component {

@@ -18,6 +18,10 @@ class Header extends React.PureComponent {
 						<NavLink to="/profile" exact activeClassName="active">
 							Profile
 						</NavLink>
+						<NavLink to="/profile" className="bm-link">
+							<i className="fas fa-user-plus"></i>
+							<span>asd</span>
+						</NavLink>
 						<button content="Logout" onClick={this.props.logout}/>
 					</div>)
 					:
