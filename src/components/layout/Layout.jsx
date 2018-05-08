@@ -1,10 +1,16 @@
 import React from 'react';
 import Header from "./Header";
 import Footer from "./Footer";
+import UserActions from "../../actions/UserActions";
+import { connect } from "react-redux";
 
-export default class Layout extends React.Component {
+class Layout extends React.Component {
+
+	componentWillMount() {
+		this.props.checkAuth();
+	}
+
 	render() {
-		console.log(this.props);
 		return (
 			<div className="global-wrap">
 				<Header/>
@@ -14,3 +20,11 @@ export default class Layout extends React.Component {
 		)
 	}
 }
+
+
+export default connect(
+	state => ({}),
+	dispatch => ({
+		checkAuth: () => dispatch(UserActions.checkAuth())
+	}),
+)(Layout);

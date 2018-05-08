@@ -11,6 +11,10 @@ class SignIn extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
+	componentWillMount(){
+		this.props.wrongCredentialsDisable(false);
+	}
+
 	handleSubmit(e) {
 		e.preventDefault();
 		const validateParams = { needToSetState: true };
@@ -28,41 +32,42 @@ class SignIn extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.isAuth);
 		if (this.props.isAuth) {
 			return <Redirect to="/"/>;
 		}
-
+		console.log(this.props.wrongCredentials, 'sd');
 		return (
 			<div className="auth-page">
-				<div className="auth-wrap">
-					<form onSubmit={this.handleSubmit}>
-						<h3 className="auth-wrap-head">Sign in</h3>
-						<p className="auth-wrap-lead">Please enter your Email and password.</p>
+				<form onSubmit={this.handleSubmit}>
+					<h3 className="auth-wrap-head">Sign in</h3>
+					<p className="auth-wrap-lead">Please enter your Email and password.</p>
 
-						<div className="clearfix">
-
-							<Input
-								label="Email"
-								ref={(node) => {
-									this.name = node;
-								}}
-								validation={() => {
-								}}
-							/>
-							<Input
-								label="Password"
-								type="password"
-								ref={(node) => {
-									this.password = node;
-								}}
-								validation={() => {
-								}}
-							/>
-						</div>
-						<button type="submit" className="auth-btn-submit"><span>Sign In</span></button>
-					</form>
-				</div>
+					<div className="clearfix">
+						{this.props.wrongCredentials ?
+							<div className="error_message">Invalid login or password</div>
+							:
+							null
+						}
+						<Input
+							label="Email"
+							ref={(node) => {
+								this.name = node;
+							}}
+							validation={() => {
+							}}
+						/>
+						<Input
+							label="Password"
+							type="password"
+							ref={(node) => {
+								this.password = node;
+							}}
+							validation={() => {
+							}}
+						/>
+					</div>
+					<button type="submit" className="auth-btn-submit"><span>Sign In</span></button>
+				</form>
 			</div>
 		);
 	}
@@ -71,9 +76,11 @@ class SignIn extends React.Component {
 
 export default connect(
 	state => ({
-		isAuth: state.user.get('isAuth')
+		isAuth: state.user.get('isAuth'),
+		wrongCredentials: state.user.get('wrongCredentials')
 	}),
 	dispatch => ({
-		signIn: (email, password) => dispatch(UserActions.signIn(email, password))
+		signIn: (email, password) => dispatch(UserActions.signIn(email, password)),
+		wrongCredentialsDisable: () => dispatch(UserActions.wrongCredentialsDisable())
 	}),
 )(SignIn);

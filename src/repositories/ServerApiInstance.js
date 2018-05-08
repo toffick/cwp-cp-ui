@@ -3,14 +3,17 @@ import qs from 'qs'
 
 class ServerApiInstance {
 	constructor() {
+
 		this.defaultParams = {
 			baseURL: SERVER_HOST,
 			//TODO 'eq' => '='
 			paramsSerializer: (params) => {
-				console.log(params, 'params');
 				return qs.stringify(params, { delimiter: ',', indices: false })
 			},
-			credentials: 'same-origin',
+			validateStatus: (status) => {
+				return status >= 200 && status < 430;
+			},
+			withCredentials: true,
 		}
 	}
 

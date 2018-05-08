@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import React from 'react';
+import UserActions from "../../actions/UserActions";
 
 class Header extends React.PureComponent {
 	render() {
@@ -17,6 +18,7 @@ class Header extends React.PureComponent {
 						<NavLink to="/profile" exact activeClassName="active">
 							Profile
 						</NavLink>
+						<button content="Logout" onClick={this.props.logout}/>
 					</div>)
 					:
 					(<div>
@@ -37,5 +39,8 @@ export default connect(
 	state => ({
 		isAuth: state.user.get("isAuth"),
 	}),
-	dispatch => ({}),
+	dispatch => ({
+		logout: () => dispatch(UserActions.logout())
+
+	}),
 )(Header);
