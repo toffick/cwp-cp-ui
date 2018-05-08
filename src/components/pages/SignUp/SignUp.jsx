@@ -1,24 +1,40 @@
 import React from 'react';
 import Input from '../../elements/Input';
-import { validateName, validatePassword } from '../../../helpers/auth';
+import { validateEmail, validatePassword } from '../../../helpers/auth';
+import UserActions from "../../../actions/UserActions";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
-export default class SignUp extends React.Component {
+class SignUp extends React.Component {
+
+	constructor(props) {
+		super(props);
+
+		this.state = { isRegistered: false };
+	}
+
 	handleSubmit(e) {
+		e.preventDefault();
 		const validateParams = { needToSetState: true };
-		if (this.name.validate(validateParams)
+		if (this.email.validate(validateParams)
 			|| this.password.validate(validateParams)
 			|| this.confirmPassword.validate(validateParams)
 		) {
-			e.preventDefault();
 			return;
 		}
 
-		const name = this.name.value();
-		const password = this.password.value();
+		const email = this.email.value;
+		const password = this.password.value;
+
+		this.props.signUp(email, password);
+		this.setState({ isRegistered: true });
 	}
 
 	render() {
-		console.log(this);
+		if (this.state.isRegistered) {
+			return <Redirect to="/"/>;
+		}
+
 		return (
 			<div className="auth-page">
 				<form className="auth-wrap" onSubmit={e => this.handleSubmit(e)}>
@@ -30,9 +46,9 @@ export default class SignUp extends React.Component {
 							label="Email"
 							requiered
 							ref={(node) => {
-								this.name = node;
+								this.email = node;
 							}}
-							validation={validateName}
+							validation={validateEmail}
 						/>
 						<Input
 							label="Password"
@@ -54,7 +70,9 @@ export default class SignUp extends React.Component {
 								if (this.password === undefined) return ' ';
 								const password = this.password.value;
 								if (!password) return 'Empty password';
-								if (value !== password) { return 'Passwords are different'; }
+								if (value !== password) {
+									return 'Passwords are different';
+								}
 								return null;
 							}}
 						/>
@@ -65,3 +83,12 @@ export default class SignUp extends React.Component {
 		);
 	}
 }
+
+export default connect(
+	state => ({
+		isAuth: state.user.get('isAuth'),
+	}),
+	dispatch => ({
+		signUp: (email, password) => dispatch(UserActions.signUp(email, password)),
+	}),
+)(SignUp);

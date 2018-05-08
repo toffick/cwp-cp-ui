@@ -11,67 +11,57 @@ class SignIn extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	componentWillMount(){
-		this.props.wrongCredentialsDisable(false);
-	}
-
 	handleSubmit(e) {
 		e.preventDefault();
 		const validateParams = { needToSetState: true };
-		if (this.name.validate(validateParams)
-			|| this.password.validate(validateParams)
-		) {
-			e.preventDefault();
+		if (this.email.validate(validateParams) || this.password.validate(validateParams)) {
 			return;
 		}
 
-		const name = this.name.value;
+		const email = this.email.value;
 		const password = this.password.value;
 
-		this.props.signIn(name, password);
+		this.props.signIn(email, password);
 	}
 
 	render() {
 		if (this.props.isAuth) {
 			return <Redirect to="/"/>;
 		}
-		console.log(this.props.wrongCredentials, 'sd');
+
 		return (
 			<div className="auth-page">
-				<form onSubmit={this.handleSubmit}>
-					<h3 className="auth-wrap-head">Sign in</h3>
-					<p className="auth-wrap-lead">Please enter your Email and password.</p>
+				<div className="auth-wrap">
+					<form onSubmit={this.handleSubmit}>
+						<h3 className="auth-wrap-head">Sign in</h3>
+						<p className="auth-wrap-lead">Please enter your Email and password.</p>
 
-					<div className="clearfix">
-						{this.props.wrongCredentials ?
-							<div className="error_message">Invalid login or password</div>
-							:
-							null
-						}
-						<Input
-							label="Email"
-							ref={(node) => {
-								this.name = node;
-							}}
-							validation={() => {
-							}}
-						/>
-						<Input
-							label="Password"
-							type="password"
-							ref={(node) => {
-								this.password = node;
-							}}
-							validation={() => {
-							}}
-						/>
-					</div>
-					<button type="submit" className="auth-btn-submit"><span>Sign In</span></button>
-				</form>
+						<div className="clearfix">
+							{/*TODO add validation*/}
+							<Input
+								label="Email"
+								ref={(node) => {
+									this.email = node;
+								}}
+								validation={() => {
+								}}
+							/>
+							<Input
+								label="Password"
+								type="password"
+								ref={(node) => {
+									this.password = node;
+								}}
+								validation={() => {
+								}}
+							/>
+						</div>
+						<button type="submit" className="auth-btn-submit"><span>Sign In</span></button>
+					</form>
+				</div>
 			</div>
 		);
 	}
-
 }
 
 export default connect(
@@ -81,6 +71,5 @@ export default connect(
 	}),
 	dispatch => ({
 		signIn: (email, password) => dispatch(UserActions.signIn(email, password)),
-		wrongCredentialsDisable: () => dispatch(UserActions.wrongCredentialsDisable())
 	}),
 )(SignIn);

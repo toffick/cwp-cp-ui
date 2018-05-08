@@ -12,3 +12,8 @@ export const validatePassword = (password) => {
 	if (/[^A-Za-z0-9!@#$%_-]/.test(password)) { return 'Password should only consists of: A-Za-z0-9!@#$%_-'; }
 	return null;
 };
+
+export const validateEmail = (email) => {
+	if (!/^^\S+@\S+\.\S+$/.test(email)) { return 'Invalid email'; }
+	return null;
+};
