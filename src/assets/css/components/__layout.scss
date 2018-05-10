@@ -1,0 +1,39 @@
+.layout {
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		min-height: 5vh;
+		//padding-left: 2vh;
+		//padding-right: 2vh;
+		background: #23ddde;
+
+		&__buttons{
+			display: flex;
+			align-items: center;
+		}
+
+		&__logo {
+			font-size: 150%;
+			padding-left: 5vh;
+
+		}
+
+		&__item {
+			padding-left: 2vh;
+			padding-right: 2vh;
+			min-height: 5vh;
+			font-weight: 600;
+			font-size: 120%;
+
+			a {
+				color: #FFFFFF;
+				text-decoration: none;
+			}
+
+			&:hover{
+				background: #4cd964;
+			}
+		}
+	}
+}

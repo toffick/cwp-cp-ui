@@ -1,12 +1,12 @@
 import UserReducer from '../reducers/UserReducer';
 import ServerApiInstance from '../repositories/ServerApiInstance';
 import { toast } from "react-toastify";
+import Cookies from 'universal-cookie';
 
 export default class UserActions {
 	static signIn(email, password) {
 		return async dispatch => {
 			try {
-
 				const { data } = await ServerApiInstance.createPost('/auth/login', {
 					email,
 					password
@@ -30,7 +30,6 @@ export default class UserActions {
 	static signUp(email, password) {
 		return async dispatch => {
 			try {
-
 				const { data } = await ServerApiInstance.createPost('/auth/registration', {
 					email,
 					password
@@ -58,11 +57,14 @@ export default class UserActions {
 	static logout() {
 		return async dispatch => {
 			try {
-
 				const { data } = await ServerApiInstance.createPost('/auth/logout');
 
 				if (!data.success) {
-					console.log(data.error);
+					toast.warn(JSON.stringify(data.error.message), {
+						position: toast.POSITION.TOP_RIGHT,
+						autoClose: 3000,
+						hideProgressBar: true
+					});
 				} else {
 					dispatch(UserReducer.actions.logout());
 				}
