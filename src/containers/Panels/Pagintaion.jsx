@@ -1,11 +1,11 @@
 import React from 'react';
 
-export default class Actors extends React.Component {
+export default class Pagintaion extends React.Component {
 
 	render() {
 		return (
 			<div>
-				Actors
+				Pagintaion
 			</div>
 		);
 	}

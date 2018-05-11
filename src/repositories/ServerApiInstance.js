@@ -1,14 +1,26 @@
 import axios from 'axios'
 import qs from 'qs'
 
+const { queryOperators } = require('../../config/constants');
+
 class ServerApiInstance {
 	constructor() {
 
 		this.defaultParams = {
 			baseURL: SERVER_HOST,
-			//TODO 'eq' => '='
 			paramsSerializer: (params) => {
-				return qs.stringify(params, { delimiter: ',', indices: false })
+
+				if (params.filter) {
+					params.filter = params.filter
+						.map(item => `${item.name} ${queryOperators[item.operator]} ${item.value}`)
+						.join(', ');
+				}
+
+				if (params.sort) {
+					params.sort = `${params.sort.name} ${params.sort.side}`;
+				}
+
+				return qs.stringify(params, { indices: false, skipNulls: true })
 			},
 			validateStatus: (status) => {
 				return status >= 200 && status < 430;

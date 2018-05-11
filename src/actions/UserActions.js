@@ -19,10 +19,11 @@ export default class UserActions {
 						hideProgressBar: true
 					});
 				} else {
-					dispatch(UserReducer.actions.signIn({ userId: data.user.id }));
+					const user = data.payload.user;
+					dispatch(UserReducer.actions.signIn({ userId: user.id }));
 				}
 			} catch (e) {
-				console.log(e);
+				console.error(e);
 			}
 		};
 	}
@@ -42,14 +43,16 @@ export default class UserActions {
 						hideProgressBar: true
 					});
 				} else {
-					toast.success(JSON.stringify(data.message), {
+					const message = data.payload.message;
+
+					toast.success(JSON.stringify(message), {
 						position: toast.POSITION.TOP_RIGHT,
 						autoClose: 5000,
 						hideProgressBar: true
 					});
 				}
 			} catch (e) {
-				console.log(e);
+				console.error(e);
 			}
 		};
 	}
@@ -69,7 +72,7 @@ export default class UserActions {
 					dispatch(UserReducer.actions.logout());
 				}
 			} catch (e) {
-				console.log(e);
+				console.error(e);
 			}
 		};
 	}
@@ -80,10 +83,11 @@ export default class UserActions {
 				const { data } = await ServerApiInstance.createPost('/auth/check-auth');
 
 				if (data.success) {
-					dispatch(UserReducer.actions.signIn({ userId: data.user.id }));
+					const user = data.user;
+					dispatch(UserReducer.actions.signIn({ userId: user.id }));
 				}
 			} catch (e) {
-				console.log(e);
+				console.error(e);
 			}
 		};
 	}

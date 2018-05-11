@@ -1,0 +1,7 @@
+{
+	"queryOperators": {
+		"EQUAL": "eq",
+		"GREATE": "gte",
+		"LESSE": "lte"
+	}
+}

@@ -1,14 +1,44 @@
 import React from 'react';
+import { NavLink } from "react-router-dom";
 
-class MainFooter extends React.PureComponent {
+class FooterLeftMetaBlocks extends React.PureComponent {
+	render() {
+		return (
+			<div >
+				<div className="layout__footer__item">
+					<a href="https://github.com/toffick/cwp-cp-server" target="_blank">
+						Source code
+					</a>
+				</div>
+				<div className="layout__footer__item">
+					<NavLink to="/contacts" exact>
+						Contacts
+					</NavLink>
+				</div>
+			</div>
+		)
+	}
+}
+
+class FooterRightBlock extends React.PureComponent {
+
 	render() {
 		const currentYear = new Date().getFullYear();
 		return (
-			<footer>
-				<div>
-					{currentYear} CinRtgn
-				</div>
-			</footer>
+			<div >
+				2018 - {currentYear} CinRtgn
+			</div>
+		)
+	}
+}
+
+class MainFooter extends React.PureComponent {
+	render() {
+		return (
+			<div className="layout__footer">
+				<FooterLeftMetaBlocks/>
+				<FooterRightBlock/>
+			</div>
 		);
 	}
 }

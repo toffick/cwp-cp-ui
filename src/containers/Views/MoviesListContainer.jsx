@@ -1,11 +1,30 @@
 import React from 'react';
+import { connect } from "react-redux";
+import MoviesActions from "../../actions/MoviesActions";
+import FilterDashboard from "../Panels/FilterDashboard";
+import Pagination from "../Panels/Pagintaion";
 
-export default class Home extends React.Component {
+class MoviesListContainer extends React.Component {
 
-	render() {
-		return (
-			<h1>Home</h1>
-		);
+	componentWillMount() {
+		this.props.getAll();
 	}
 
+	render() {
+		return (<div>
+				<FilterDashboard/>
+				<h1>Home</h1>
+				<Pagination/>
+			</div>
+		);
+	}
 }
+
+export default connect(
+	state => ({
+		moviesList: state.movies.get('movies'),
+	}),
+	dispatch => ({
+		getAll: () => dispatch(MoviesActions.getAll())
+	}),
+)(MoviesListContainer);

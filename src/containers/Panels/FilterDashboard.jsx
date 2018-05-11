@@ -1,11 +1,11 @@
 import React from 'react';
 
-export default class Actors extends React.Component {
+export default class FilterDashboard extends React.Component {
 
 	render() {
 		return (
 			<div>
-				Actors
+				PANEL
 			</div>
 		);
 	}

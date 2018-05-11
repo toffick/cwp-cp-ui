@@ -4,6 +4,7 @@
 @import "components/_md-input";
 @import "components/_auth";
 @import "components/_layout";
+@import "components/_container";
 
 html, body {
 	margin: 0;
@@ -11,3 +12,14 @@ html, body {
 	font-family: sans-serif;
 }
 
+.header{
+	height: 7vh;
+}
+
+.main{
+	height: 100%;
+}
+
+.footer{
+	height: 7vh;
+}

@@ -12,10 +12,20 @@ class Layout extends React.Component {
 
 	render() {
 		return (
-			<div className="global-wrap">
-				<Header/>
-				{this.props.children}
-				<Footer/>
+			<div>
+				<div className="header">
+					<Header/>
+				</div>
+				<div className="main">
+					<div className="content">
+						<div className="inner">
+							{this.props.children}
+						</div>
+					</div>
+					<div className="footer">
+						<Footer/>
+					</div>
+				</div>
 			</div>
 		)
 	}
