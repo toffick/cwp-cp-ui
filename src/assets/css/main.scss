@@ -5,6 +5,7 @@
 @import "components/_auth";
 @import "components/_layout";
 @import "components/_container";
+@import "components/_movies";
 
 html, body {
 	margin: 0;
@@ -14,10 +15,6 @@ html, body {
 
 .header{
 	height: 7vh;
-}
-
-.main{
-	height: 100%;
 }
 
 .footer{

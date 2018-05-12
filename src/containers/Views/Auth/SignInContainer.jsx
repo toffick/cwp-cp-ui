@@ -1,9 +1,9 @@
 import React from 'react';
-import Input from '../../components/Input';
+import Input from '../../../components/Input';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
-import { validateName, validatePassword, validatePostingPrivateKey } from '../../helpers/auth';
-import UserActions from "../../actions/UserActions";
+import { validateName, validatePassword, validatePostingPrivateKey } from '../../../helpers/auth';
+import UserActions from "../../../actions/UserActions";
 
 class SignIn extends React.Component {
 	constructor(props) {

@@ -9,25 +9,36 @@
 		background: #23ddde;
 		position: fixed;
 
-		&__buttons {
+		.buttons {
 			display: flex;
 			align-items: center;
 			height: 100%;
 			padding-right: 3vh;
 		}
 
-		&__logo {
-			font-size: 180%;
+		.logo {
+			display: flex;
+			align-items: center;
 			padding-left: 5vh;
+			padding-right: 5vh;
+			height: 100%;
+			font-weight: bold;
+			text-decoration: none;
+			color: #FFFFFF;
+
+			&:hover {
+				cursor: pointer;
+			}
+
 		}
 
-		&__item {
+		.item {
 			display: flex;
 			align-items: center;
 			padding-left: 2vh;
 			padding-right: 2vh;
 			height: 100%;
-			font-weight: 600;
+			font-weight: bold;
 			font-size: 120%;
 			text-decoration: none;
 			color: #FFFFFF;

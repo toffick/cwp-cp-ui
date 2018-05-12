@@ -8,29 +8,34 @@ class Header extends React.PureComponent {
 	render() {
 		return (
 			<div className="layout__header">
-				<h1 className="layout__header__logo">
-					CinRtgn
-				</h1>
-				<div className="layout__header__buttons">
-					<NavLink to="/" exact className="layout__header__item">
+				<NavLink to="/" exact className="logo">
+					<h1>
+						CinRtgn
+					</h1>
+				</NavLink>
+
+				<div className="buttons">
+					<NavLink to="/movies" exact className="item">
 						MOVIES
 					</NavLink>
-					<NavLink to="/actors" exact className="layout__header__item">
+					<NavLink to="/actors" exact className="item">
 						ACTORS
 					</NavLink>
 				</div>
 				{this.props.isAuth ?
-					(<div className="layout__header__buttons">
-						<NavLink to="/profile" exact activeClassName="layout__header__item">
+					(<div className="buttons">
+						<NavLink to="/profile" exact className="item">
 							PROFILE
 						</NavLink>
-						<FlatButton className="layout__header__item" onClick={this.props.logout}>LOGOUT</FlatButton>
+						<NavLink to="/" exact className="item" onClick={this.props.logout}>
+							LOGOUT
+						</NavLink>
 					</div>)
 					:
-					(<div className="layout__header__buttons">
-						<NavLink to="/sign-up" exact className=" layout__header__item">
+					(<div className="buttons">
+						<NavLink to="/sign-up" exact className="item">
 							SIGN UP </NavLink>
-						<NavLink className="layout__header__item" to="/sign-in" exact activeClassName="active">
+						<NavLink className="item" to="/sign-in" exact activeClassName="active">
 							SIGN IN </NavLink>
 					</div>)}
 			</div>

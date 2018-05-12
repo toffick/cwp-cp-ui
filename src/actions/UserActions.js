@@ -20,7 +20,7 @@ export default class UserActions {
 					});
 				} else {
 					const user = data.payload.user;
-					dispatch(UserReducer.actions.signIn({ userId: user.id }));
+					dispatch(UserReducer.actions.signIn({ userId: user.id, role: user.role }));
 				}
 			} catch (e) {
 				console.error(e);
@@ -84,7 +84,7 @@ export default class UserActions {
 
 				if (data.success) {
 					const user = data.user;
-					dispatch(UserReducer.actions.signIn({ userId: user.id }));
+					dispatch(UserReducer.actions.signIn({ userId: user.id, role: user.role }));
 				}
 			} catch (e) {
 				console.error(e);

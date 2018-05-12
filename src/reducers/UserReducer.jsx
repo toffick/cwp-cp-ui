@@ -4,6 +4,7 @@ import { Map } from "immutable";
 const initialState = Map({
 	isAuth: false,
 	userId: null,
+	role: '',
 });
 
 export default createModule({
@@ -12,14 +13,14 @@ export default createModule({
 	transformations: {
 		signIn: {
 			reducer: (state, { payload }) => {
-				const { userId } = payload;
+				const { userId, role } = payload;
 
-				return state.set('userId', userId).set('isAuth', true);
+				return state.set('userId', userId).set('isAuth', true).set('role', role);
 			}
 		},
 		logout: {
 			reducer: (state, { payload }) => {
-				return state.set('userId', null).set('isAuth', false);
+				return state.set('userId', null).set('isAuth', false).set('role', '');
 			}
 		}
 	},

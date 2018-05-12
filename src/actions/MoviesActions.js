@@ -8,7 +8,7 @@ export default class UserActions {
 				const parameters = {...getState().movies.get('parameters')};
 				const { data } = await ServerApiInstance.createGet('/api/v1/movies', { ...parameters });
 
-				const movies = data.payload;
+				const movies = data.payload.movies;
 				dispatch(MoviesReducer.actions.getAll({ movies }));
 			} catch (e) {
 				console.error(e);

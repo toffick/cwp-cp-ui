@@ -1,0 +1,70 @@
+.movies_container{
+	display: flex;
+	justify-content: stretch;
+	min-height: 100%;
+	width: 100%;
+
+	.filter{
+		flex-grow: 1;
+		min-width: 15vh;
+		height: 30vh;
+		background: #4cd964;
+		margin-right: 2vh;
+	}
+
+	.movies_list {
+		flex-grow: 4;
+
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+
+			li:not(:last-child) {
+				margin-bottom: 2vh;
+			}
+		}
+	}
+
+	.movies_item {
+		height: 25vh;
+		display: flex;
+		background: #c0c1c0;
+		padding: 2vh;
+		justify-content: stretch;
+
+		img {
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		.description{
+			padding-left: 2vh;
+			width: 100%;
+
+			.title_rating{
+				display: flex;
+				justify-content: space-between;
+				left: 0;
+
+				h3 {
+					margin: 0;
+					padding: 0;
+				}
+			}
+		}
+
+
+	}
+
+}
+
+.rating{
+	height: 65px;
+	width: 65px;
+	border-radius: 50%;
+	border:1px solid red;
+	line-height: 65px;
+	text-align: center;
+}
+

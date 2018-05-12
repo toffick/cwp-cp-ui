@@ -1,16 +1,18 @@
 import React from 'react';
 import { Switch, Route } from "react-router-dom";
-import MoviesListContainer from "./containers/Views/MoviesListContainer";
-import SignUpContainer from "./containers/Views/SignUpContainer";
-import SignInContainer from "./containers/Views/SignInContainer";
-import ActorsListContainer from "./containers/Views/ActorsListContainer";
-import ProfileContainer from "./containers/Views/ProfileContainer";
+import MoviesListContainer from "./containers/Views/Movies/MoviesList";
+import SignUpContainer from "./containers/Views/Auth/SignUpContainer";
+import SignInContainer from "./containers/Views/Auth/SignInContainer";
+import ActorsListContainer from "./containers/Views/Actors/ActorList";
+import ProfileContainer from "./containers/Views/Profile/ProfileContainer";
 import Layout from "./containers/Layouts/Layout";
 import { ToastContainer } from 'react-toastify';
-import ActorContainer from "./containers/Views/ActorContainer";
-import MovieContainer from "./containers/Views/MovieContainer";
+import ActorContainer from "./containers/Views/Actors/ActorItem";
+import MovieContainer from "./containers/Views/Movies/MovieItem";
 import 'react-toastify/dist/ReactToastify.css';
 import { MuiThemeProvider } from "material-ui";
+import NoMatch from "./containers/Views/NoMatch";
+import Home from "./containers/Views/Home";
 
 export default class Routes extends React.Component {
 	render() {
@@ -19,15 +21,17 @@ export default class Routes extends React.Component {
 				<Layout>
 					<ToastContainer/>
 					<Switch>
-						<Route exact path="/" component={MoviesListContainer}/>
-						<Route exact path="/movies/:id" component={MovieContainer}/>
+						<Route exact path="/" component={Home}/>
+						<Route exact path="/movies" component={MoviesListContainer}>
+							<Route exact path="/:id" component={MovieContainer}/>
+						</Route>
 						<Route exact path="/actors" component={ActorsListContainer}>
 							<Route exact path="/:id" component={ActorContainer}/>
 						</Route>
-						<Route exact path="/profile" component={ProfileContainer}/>
-						<Route exact path="/users/:id" component={ProfileContainer}/>
+						<Route exact path="/users/:id/profile" component={ProfileContainer}/>
 						<Route exact path="/sign-up" component={SignUpContainer}/>
 						<Route exact path="/sign-in" component={SignInContainer}/>
+						<Route component={NoMatch}/>
 					</Switch>
 				</Layout>
 			</MuiThemeProvider>
