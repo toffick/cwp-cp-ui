@@ -1,51 +1,129 @@
-.movies_container{
+.movies_container {
 	display: flex;
 	justify-content: stretch;
 	min-height: 100%;
 	width: 100%;
 
-	.filter{
-		flex-grow: 1;
-		min-width: 15vh;
+	hr {
+		display: block;
+		height: 1px;
+		border: 0;
+		border-top: 1px solid $header-color;
+		margin: 1em 0;
+		padding: 0;
+	}
+
+	.filter {
+		display: flex;
+		min-width: 30vh;
 		height: 30vh;
-		background: #4cd964;
 		margin-right: 2vh;
+		margin-top: 2vh;
+		padding: 2vh;
+		justify-content: space-around;
+		border: 1px solid $header-color;
+
+		.genres_list {
+			ul {
+				list-style-type: none;
+				-webkit-padding-start: 0;
+
+				li:not(:last-child) {
+					margin-bottom: 4px;
+				}
+			}
+
+			.item_active {
+				font-weight: bold;
+				cursor: pointer;
+			}
+
+			.item_inactive {
+				font-weight: bold;
+				cursor: pointer;
+				color: #7e8883;
+				opacity: 0.7;
+				&:hover {
+					color: #111111;
+					opacity: 1;
+				}
+			}
+		}
+
+		.filter_options {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+
+			.range_inputs_item {
+				padding-bottom: 30px;
+				width: 25vh;
+				text-align: center;
+				position: inherit;
+
+			}
+
+			.button {
+				background-color: $header-color;
+				border: none;
+				color: white;
+				padding: 15px 32px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				position: inherit;
+				bottom: 0;
+				max-width: 10vh;
+
+				&:hover {
+					cursor: pointer;
+					background-color: $active-link-color;
+				}
+			}
+		}
 	}
 
 	.movies_list {
-		flex-grow: 4;
+		width: 100%;
 
 		ul {
 			margin: 0;
 			padding: 0;
 			list-style-type: none;
-
-			li:not(:last-child) {
-				margin-bottom: 2vh;
-			}
 		}
 	}
 
 	.movies_item {
-		height: 25vh;
 		display: flex;
-		background: #c0c1c0;
 		padding: 2vh;
 		justify-content: stretch;
+		border: 2px;
 
 		img {
 			max-width: 100%;
 			max-height: 100%;
 		}
 
-		.description{
+		.description {
 			padding-left: 2vh;
 			width: 100%;
 
-			.title_rating{
+			.title_rating {
 				display: flex;
 				justify-content: space-between;
-				left: 0;
+				align-items: center;
+
+				&_link {
+					text-decoration: none;
+					color: #111111;
+
+					&:hover {
+						cursor: pointer;
+						color: $active-link-color;
+					}
+				}
 
 				h3 {
 					margin: 0;
@@ -54,17 +132,20 @@
 			}
 		}
 
-
 	}
 
 }
 
-.rating{
+.rating {
+	min-height: 65px;
+	min-width: 65px;
 	height: 65px;
 	width: 65px;
 	border-radius: 50%;
-	border:1px solid red;
+	border: 2px solid $header-color;
 	line-height: 65px;
 	text-align: center;
+	font-weight: bold;
 }
 
+//TODO спиннер!!

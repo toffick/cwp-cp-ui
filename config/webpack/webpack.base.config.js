@@ -38,9 +38,13 @@ export default new Config().merge({
 				})
 			},
 			{
-				test: /\.(png|gif|jpg|ico|svg)$/,
+				test: /\.(png|jpg|ico|svg)$/,
 				loader: 'file-loader?name=images/[name].[ext]'
 			},
+			{
+				test: /\.(gif|ttf|eot|svg|woff2?)$/,
+				use: 'url-loader?name=[name].[ext]',
+			}
 		],
 	},
 	resolve: {

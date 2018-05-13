@@ -8,20 +8,30 @@ import MovieItem from "./MovieItem";
 class MoviesListContainer extends React.Component {
 
 	getMovies() {
-		return this.props.moviesList.map(movie => (<li><MovieItem movie={movie}/></li>))
+		return this.props.moviesList.map((movie, i) => (
+			<li key={i}>
+				<MovieItem movie={movie}/>
+				<hr/>
+			</li>))
 	}
 
 	componentWillMount() {
-		this.props.getAllMovies();
+		this.props.setMovies();
 	}
 
 	render() {
 		return (
 			<div className="movies_container">
-				<FilterDashboard/>
+				<FilterDashboard
+					changeParametersHundler={this.props.changeParameters}
+					addFilterHundler={this.props.addFilter}
+					removeFilterHundler={this.props.removeFilter}
+					setMovies={this.props.setMovies}
+				/>
 				<div className="movies_list">
+					<hr/>
 					<ul>
-						{this.getMovies()}
+						{this.getMovies()}1
 					</ul>
 					<Pagination/>
 				</div>
@@ -33,9 +43,12 @@ class MoviesListContainer extends React.Component {
 
 export default connect(
 	state => ({
-		moviesList: state.movies.get('movies'),
+		moviesList: state.movies.get('movies')
 	}),
 	dispatch => ({
-		getAllMovies: () => dispatch(MoviesActions.getAll())
+		setMovies: () => dispatch(MoviesActions.setMovies()),
+		changeParameters: (parameters) => dispatch(MoviesActions.changeParameters(parameters)),
+		addFilter: (filter) => dispatch(MoviesActions.addFilter(filter)),
+		removeFilter: (filter) => dispatch(MoviesActions.removeFilter(filter)),
 	}),
 )(MoviesListContainer);

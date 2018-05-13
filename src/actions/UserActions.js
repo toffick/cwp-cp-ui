@@ -5,7 +5,7 @@ import Cookies from 'universal-cookie';
 
 export default class UserActions {
 	static signIn(email, password) {
-		return async dispatch => {
+		return async (dispatch, getState) => {
 			try {
 				const { data } = await ServerApiInstance.createPost('/auth/login', {
 					email,
@@ -19,7 +19,7 @@ export default class UserActions {
 						hideProgressBar: true
 					});
 				} else {
-					const user = data.payload.user;
+					const user = data.payload;
 					dispatch(UserReducer.actions.signIn({ userId: user.id, role: user.role }));
 				}
 			} catch (e) {
@@ -29,7 +29,7 @@ export default class UserActions {
 	}
 
 	static signUp(email, password) {
-		return async dispatch => {
+		return async (dispatch, getState) => {
 			try {
 				const { data } = await ServerApiInstance.createPost('/auth/registration', {
 					email,
@@ -58,7 +58,7 @@ export default class UserActions {
 	}
 
 	static logout() {
-		return async dispatch => {
+		return async (dispatch, getState) => {
 			try {
 				const { data } = await ServerApiInstance.createPost('/auth/logout');
 
@@ -78,7 +78,7 @@ export default class UserActions {
 	}
 
 	static checkAuth() {
-		return async dispatch => {
+		return async (dispatch, getState) => {
 			try {
 				const { data } = await ServerApiInstance.createPost('/auth/check-auth');
 

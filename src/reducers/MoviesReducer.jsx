@@ -6,16 +6,16 @@ const initialState = Map({
 	parameters: {
 		limit: 5,
 		page: 1,
-		filter: null,
-		sort: null
-	}
+		sort: { name: 'year', side: 'desc' }
+	},
+	filters: []
 });
 
 export default createModule({
 	name: 'movies',
 	initialState,
 	transformations: {
-		getAll: {
+		setMovies: {
 			reducer: (state, { payload }) => {
 				const { movies } = payload;
 
@@ -26,7 +26,24 @@ export default createModule({
 			reducer: (state, { payload }) => {
 				const { parameters } = payload;
 
-				return state.set('parameters', {...state.get('parameters'), ...parameters});
+				return state.set('parameters', { ...state.get('parameters'), ...parameters });
+			}
+		},
+		addFilter: {
+			reducer: (state, { payload }) => {
+				const { filter } = payload;
+
+				return state.set('filters', [...state.get('filters'), filter]);
+			}
+		},
+		removeFilter: {
+			reducer: (state, { payload }) => {
+				const { filter } = payload;
+
+				const filters = [...state.get('filters')]
+					.filter(item => !(item.name === filter.name && item.value === filter.value));
+
+				return state.set('filters', filters);
 			}
 		}
 	},

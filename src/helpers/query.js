@@ -1,9 +1,17 @@
 const { queryOperators } = require('../../config/constants');
 
-export const querySerializer = (params)=>{
+const normaliseFields = (field) => {
+	const matchField = {
+		genre: 'genre.name'
+	};
+
+	return matchField[field] || field;
+};
+
+export const querySerializer = (params) => {
 	if (params.filter) {
 		params.filter = params.filter
-			.map(item => `${item.name} ${queryOperators[item.operator]} ${item.value}`)
+			.map(item => `${normaliseFields(item.name)} ${item.operator} ${item.value}`)
 			.join(', ');
 	}
 

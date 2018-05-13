@@ -5,11 +5,8 @@
 	.inner{
 		display: flex;
 		justify-content: center;
-		min-width: 80%;
 		max-width: 80%;
-		padding-top: 3vh;
-		padding-bottom: 3vh;
-		background: #c6d9d0;
-
+		min-width: 80%;
+		padding: 3vh 0 3vh 0;
 	}
 }
