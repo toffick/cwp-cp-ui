@@ -19,6 +19,10 @@ class MoviesListContainer extends React.Component {
 		this.props.setMovies();
 	}
 
+	componentWillUnmount(){
+		this.props.resetParameters();
+	}
+
 	render() {
 		return (
 			<div className="movies_container">
@@ -31,9 +35,13 @@ class MoviesListContainer extends React.Component {
 				<div className="movies_list">
 					<hr/>
 					<ul>
-						{this.getMovies()}1
+						{this.getMovies()}
 					</ul>
-					<Pagination/>
+					<Pagination
+						changeParameters={this.props.changeParameters}
+						setItems={this.props.setMovies}
+						pagination={this.props.pagination}
+					/>
 				</div>
 				<br/>
 			</div>
@@ -43,12 +51,14 @@ class MoviesListContainer extends React.Component {
 
 export default connect(
 	state => ({
-		moviesList: state.movies.get('movies')
+		moviesList: state.movies.get('movies'),
+		pagination: state.movies.get('pagination')
 	}),
 	dispatch => ({
 		setMovies: () => dispatch(MoviesActions.setMovies()),
 		changeParameters: (parameters) => dispatch(MoviesActions.changeParameters(parameters)),
 		addFilter: (filter) => dispatch(MoviesActions.addFilter(filter)),
 		removeFilter: (filter) => dispatch(MoviesActions.removeFilter(filter)),
+		resetParameters: () => dispatch(MoviesActions.resetParameters()),
 	}),
 )(MoviesListContainer);

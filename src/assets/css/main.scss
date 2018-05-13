@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,700');
+
 @import "_constants";
 @import "components/_app";
 @import "components/_md-input";
@@ -6,6 +7,8 @@
 @import "components/_layout";
 @import "components/_container";
 @import "components/_movies";
+@import "components/_pagination";
+@import "components/_movie";
 
 html, body {
 	margin: 0;

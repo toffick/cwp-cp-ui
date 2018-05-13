@@ -1,19 +1,22 @@
 import { createModule } from 'redux-modules';
 import { Map } from "immutable";
 
-const initialState = Map({
-	movies: [],
-	parameters: {
-		limit: 5,
-		page: 1,
-		sort: { name: 'year', side: 'desc' }
-	},
-	filters: []
-});
+const initParameters = {
+	limit: 5,
+	page: 1,
+	sort: { name: 'year', side: 'desc' }
+};
 
 export default createModule({
 	name: 'movies',
-	initialState,
+	initialState: Map({
+		movies: [],
+		pagination: {},
+		parameters: {
+			...initParameters
+		},
+		filters: []
+	}),
 	transformations: {
 		setMovies: {
 			reducer: (state, { payload }) => {
@@ -25,7 +28,7 @@ export default createModule({
 		changeParameters: {
 			reducer: (state, { payload }) => {
 				const { parameters } = payload;
-
+				console.log(({ ...state.get('parameters'), ...parameters }));
 				return state.set('parameters', { ...state.get('parameters'), ...parameters });
 			}
 		},
@@ -44,6 +47,18 @@ export default createModule({
 					.filter(item => !(item.name === filter.name && item.value === filter.value));
 
 				return state.set('filters', filters);
+			}
+		},
+		resetParameters: {
+			reducer: (state, { payload }) => {
+				return state.set('parameters', { ...initParameters }).set('filters', []).set('movies', []).set('parameters', { current: 1 });
+			}
+		},
+		setPagination: {
+			reducer: (state, { payload }) => {
+				const { pagination } = payload;
+
+				return state.set('pagination', pagination);
 			}
 		}
 	},
