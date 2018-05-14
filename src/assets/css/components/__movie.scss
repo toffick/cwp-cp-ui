@@ -1,4 +1,43 @@
 .movie_container {
-}
+	width: 83%;
 
-//TODO спиннер!!
+	.movies_item {
+		display: flex;
+		padding: 2vh;
+		justify-content: stretch;
+		border: 2px;
+
+		img {
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		.description {
+			padding-left: 2vh;
+			width: 100%;
+
+			.title_rating {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+
+				&_link {
+					text-decoration: none;
+					color: #111111;
+
+					&:hover {
+						cursor: pointer;
+						color: $active-link-color;
+					}
+				}
+
+				h3 {
+					margin: 0;
+					padding: 0;
+				}
+			}
+		}
+
+	}
+
+}

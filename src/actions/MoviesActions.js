@@ -13,6 +13,7 @@ export default class MoviesActions {
 
 				const { movies } = data.payload;
 				const { pagination } = data.payload.meta;
+
 				dispatch(MoviesReducer.actions.setMovies({ movies }));
 				dispatch(MoviesReducer.actions.setPagination({ pagination}));
 			} catch (e) {

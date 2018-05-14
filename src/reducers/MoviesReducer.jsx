@@ -4,7 +4,7 @@ import { Map } from "immutable";
 const initParameters = {
 	limit: 5,
 	page: 1,
-	sort: { name: 'year', side: 'desc' }
+	sort: { }
 };
 
 export default createModule({
@@ -28,7 +28,7 @@ export default createModule({
 		changeParameters: {
 			reducer: (state, { payload }) => {
 				const { parameters } = payload;
-				console.log(({ ...state.get('parameters'), ...parameters }));
+
 				return state.set('parameters', { ...state.get('parameters'), ...parameters });
 			}
 		},
@@ -51,7 +51,7 @@ export default createModule({
 		},
 		resetParameters: {
 			reducer: (state, { payload }) => {
-				return state.set('parameters', { ...initParameters }).set('filters', []).set('movies', []).set('parameters', { current: 1 });
+				return state.set('parameters', { ...initParameters }).set('filters', []).set('movies', []);
 			}
 		},
 		setPagination: {

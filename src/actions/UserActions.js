@@ -1,7 +1,6 @@
 import UserReducer from '../reducers/UserReducer';
 import ServerApiInstance from '../repositories/ServerApiInstance';
-import { toast } from "react-toastify";
-import Cookies from 'universal-cookie';
+import ToastWrapper from '../helpers/toast';
 
 export default class UserActions {
 	static signIn(email, password) {
@@ -13,11 +12,7 @@ export default class UserActions {
 				});
 
 				if (!data.success) {
-					toast.error(JSON.stringify(data.error.message), {
-						position: toast.POSITION.TOP_RIGHT,
-						autoClose: 3000,
-						hideProgressBar: true
-					});
+					ToastWrapper.error(data.error.message);
 				} else {
 					const user = data.payload;
 					dispatch(UserReducer.actions.signIn({ userId: user.id, role: user.role }));
@@ -37,19 +32,9 @@ export default class UserActions {
 				});
 
 				if (!data.success) {
-					toast.error(JSON.stringify(data.error.message), {
-						position: toast.POSITION.TOP_RIGHT,
-						autoClose: 3000,
-						hideProgressBar: true
-					});
+					ToastWrapper.success(data.error.message);
 				} else {
-					const message = data.payload.message;
-
-					toast.success(JSON.stringify(message), {
-						position: toast.POSITION.TOP_RIGHT,
-						autoClose: 5000,
-						hideProgressBar: true
-					});
+					ToastWrapper.success(data.payload.message);
 				}
 			} catch (e) {
 				console.error(e);
@@ -63,11 +48,7 @@ export default class UserActions {
 				const { data } = await ServerApiInstance.createPost('/auth/logout');
 
 				if (!data.success) {
-					toast.warn(JSON.stringify(data.error.message), {
-						position: toast.POSITION.TOP_RIGHT,
-						autoClose: 3000,
-						hideProgressBar: true
-					});
+					ToastWrapper.warn(data.error.message);
 				} else {
 					dispatch(UserReducer.actions.logout());
 				}

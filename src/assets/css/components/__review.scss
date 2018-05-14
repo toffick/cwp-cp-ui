@@ -1,0 +1,34 @@
+.review_container {
+	display: flex;
+	justify-content: center;
+
+	.reviews_list {
+		max-width: 50vh;
+		min-width: 50vh;
+
+		.review_item {
+			background: $header-color;
+			padding: 42px 30px 20px 30px;
+			margin-top: 20px;
+			border-radius: 25px;
+
+			.datestamp{
+				text-align: right;
+				opacity: 0.5;
+				font-size: 80%;
+			}
+		}
+	}
+}
+
+.rating {
+	min-height: 40px;
+	min-width: 40px;
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	border: 2px solid #FFFFFF;
+	line-height: 65px;
+	text-align: center;
+	font-weight: bold;
+}

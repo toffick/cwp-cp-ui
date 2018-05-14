@@ -41,7 +41,7 @@ class ServerApiInstance {
 	/**
 	 *
 	 * @param {String} url
-	 * @param {Object} params
+	 * @param {Object=} params
 	 * @return {Promise}
 	 */
 	createGet(url, params) {

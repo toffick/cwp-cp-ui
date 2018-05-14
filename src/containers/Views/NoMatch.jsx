@@ -4,7 +4,11 @@ export default class NoMatch extends React.Component {
 
 	render() {
 		return (
-			<h1>Page not found</h1>
+
+			<div>
+				<h1>Page not found</h1>
+				<p>{this.props.message}</p>
+			</div>
 		);
 	}
 

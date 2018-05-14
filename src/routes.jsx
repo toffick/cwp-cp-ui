@@ -22,7 +22,7 @@ export default class Routes extends React.Component {
 					<ToastContainer/>
 					<Switch>
 						<Route exact path="/" component={Home}/>
-						<Route exact path="/movies/:id()" component={Movie}/>
+						<Route exact path="/movies/:id" component={Movie}/>
 						<Route exact path="/movies" component={MoviesList}/>
 						<Route exact path="/actors/:id" component={ActorContainer}/>
 						<Route exact path="/actors" component={ActorsListContainer}/>

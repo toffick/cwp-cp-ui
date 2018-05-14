@@ -1,12 +1,13 @@
-.content{
+.content {
 	display: flex;
 	justify-content: center;
+	min-height: 85.35vh;
 
-	.inner{
+	.inner {
 		display: flex;
 		justify-content: center;
 		max-width: 80%;
 		min-width: 80%;
-		padding: 3vh 0 3vh 0;
+		padding: 3vh 0 5vh 0;
 	}
 }
