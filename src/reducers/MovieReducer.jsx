@@ -1,22 +1,24 @@
 import { createModule } from 'redux-modules';
 import { Map } from "immutable";
 
+const initMovie = {
+	actors: [],
+	director: "",
+	genres: [],
+	id: 0,
+	plot: "",
+	posterUrl: "",
+	rating: 0,
+	ratingCount: 0,
+	runtime: 0,
+	title: "",
+	year: 1900
+};
+
 export default createModule({
 	name: 'movie',
 	initialState: Map({
-		movie: {
-			actors: [],
-			director: "",
-			genres: [],
-			id: 0,
-			plot: "",
-			posterUrl: "",
-			rating: 0,
-			ratingCount: 0,
-			runtime: 0,
-			title: "",
-			year: 1900
-		},
+		movie: { ...initMovie },
 		reviews: [],
 		error: null
 	}),
@@ -38,8 +40,22 @@ export default createModule({
 		setReviews: {
 			reducer: (state, { payload }) => {
 				const { reviews } = payload;
-				console.log(reviews);
+
 				return state.set('reviews', reviews);
+			}
+		},
+		addReview: {
+			reducer: (state, { payload }) => {
+				const { review } = payload;
+
+				const reviews = state.get('reviews');
+
+				return state.set('reviews', [review, ...reviews]);
+			}
+		},
+		restore: {
+			reducer: (state, { payload }) => {
+				return state.set('reviews', []).set('movies', { ...initMovie }).set('error', null);
 			}
 		}
 	},

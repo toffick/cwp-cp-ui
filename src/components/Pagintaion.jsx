@@ -11,32 +11,32 @@ export default class Pagination extends React.Component {
 		const paginationObj = this.props.pagination;
 		const paginationButtons = [];
 
-		paginationButtons.push((<a style={{fontWeight: 'bold'}} onClick={e => this.onClickHandler(paginationObj.first)}>{'<<'}</a>))
+		paginationButtons.push((<a key="1" style={{fontWeight: 'bold'}} onClick={e => this.onClickHandler(paginationObj.first)}>{'<<'}</a>))
 
 		if (paginationObj.prevprev) {
 			paginationButtons.push((
-				<a onClick={e => this.onClickHandler(paginationObj.prevprev)}>{paginationObj.prevprev}</a>))
+				<a key="2" onClick={e => this.onClickHandler(paginationObj.prevprev)}>{paginationObj.prevprev}</a>))
 		}
 
 		if (paginationObj.prev) {
-			paginationButtons.push((<a onClick={e => this.onClickHandler(paginationObj.prev)}>{paginationObj.prev}</a>))
+			paginationButtons.push((<a key="3" onClick={e => this.onClickHandler(paginationObj.prev)}>{paginationObj.prev}</a>))
 		}
 
 		paginationButtons.push((
-			<a className="active"
+			<a className="active" key="4"
 			   onClick={e => this.onClickHandler(paginationObj.current)}>{paginationObj.current}</a>))
 
 		if (paginationObj.next) {
 			paginationButtons.push((
-				<a onClick={e => this.onClickHandler(paginationObj.next)}>{paginationObj.next}</a>))
+				<a key="5" onClick={e => this.onClickHandler(paginationObj.next)}>{paginationObj.next}</a>))
 		}
 
 		if (paginationObj.nextnext) {
 			paginationButtons.push((
-				<a onClick={e => this.onClickHandler(paginationObj.nextnext)}>{paginationObj.nextnext}</a>))
+				<a key="6" onClick={e => this.onClickHandler(paginationObj.nextnext)}>{paginationObj.nextnext}</a>))
 		}
 
-		paginationButtons.push((<a  style={{fontWeight: 'bold'}} onClick={e => this.onClickHandler(paginationObj.last)}>{'>>'}</a>))
+		paginationButtons.push((<a key="7" style={{fontWeight: 'bold'}} onClick={e => this.onClickHandler(paginationObj.last)}>{'>>'}</a>))
 
 		return paginationButtons;
 	}

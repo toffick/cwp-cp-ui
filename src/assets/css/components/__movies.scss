@@ -137,15 +137,16 @@
 }
 
 .rating {
-	min-height: 65px;
-	min-width: 65px;
-	height: 65px;
-	width: 65px;
-	border-radius: 50%;
-	border: 2px solid $header-color;
-	line-height: 65px;
-	text-align: center;
-	font-weight: bold;
-}
+	  min-height: 80px;
+	  min-width: 80px;
+	  height: 80px;
+	  width: 80px;
+	  border-radius: 50%;
+	  border: 3px solid $header-color;
+	  line-height: 80px;
+	  text-align: center;
+	  font-weight: bold;
+	font-size: 135%;
+  }
 
 //TODO спиннер!!

@@ -1,9 +1,9 @@
 import React from 'react';
-import { connect } from "react-redux";
-import MoviesActions from "../../../actions/MoviesActions";
-import FilterDashboard from "./FilterMovies";
-import Pagination from "../../../components/Pagintaion";
-import MovieItem from "./MovieItem";
+import { connect } from 'react-redux';
+import MoviesActions from '../../../actions/MoviesActions';
+import FilterDashboard from './FilterMovies';
+import Pagination from '../../../components/Pagintaion';
+import MovieItem from './MovieItem';
 
 class MoviesListContainer extends React.Component {
 
@@ -19,8 +19,9 @@ class MoviesListContainer extends React.Component {
 		this.props.setMovies();
 	}
 
-	componentWillUnmount(){
+	componentDidMount() {
 		this.props.resetParameters();
+		window.scrollTo(0, 0)
 	}
 
 	render() {

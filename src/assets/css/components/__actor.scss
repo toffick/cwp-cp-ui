@@ -1,5 +1,5 @@
-.movie_container {
-	width: 83%;
+.actor_container {
+	width: 50%;
 
 	hr {
 		display: block;
@@ -10,7 +10,7 @@
 		padding: 0;
 	}
 
-	.movies_item {
+	.actors_item {
 		display: flex;
 		padding: 2vh;
 		justify-content: stretch;
@@ -21,9 +21,8 @@
 			max-height: 100%;
 		}
 
-
 		.description {
-			padding-left: 2vh;
+			padding-left: 5vh;
 			width: 100%;
 
 			.title_rating {
@@ -47,7 +46,27 @@
 				}
 			}
 		}
-
 	}
 
+	.filmography {
+		padding-left: 2vh;
+
+		ul {
+			list-style-type: none;
+
+			li {
+				padding-top: 10px;
+
+				.movie_link {
+					margin: 5px;
+					text-decoration: none;
+					color: black;
+
+					&:hover {
+						color: $header-color;
+					}
+				}
+			}
+		}
+	}
 }

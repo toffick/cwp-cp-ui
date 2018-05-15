@@ -24,20 +24,35 @@ export default class MovieActions {
 		return async (dispatch, getState) => {
 			try {
 
-				//TODO add review fields
-				dispatch(MovieReducer.actions.addReview(review));
-
+				const movie = getState().movie.get('movie');
 				const userId = getState().user.get('userId');
-				const { data } = await ServerApiInstance.createPost(`/api/v1/movies/${userId}/reviews`, review);
+				const name = getState().user.get('name');
+
+				const { data } = await ServerApiInstance.createPost(`/api/v1/users/${userId}/reviews`, {
+					...review,
+					movieId: movie.id
+				});
 
 				if (!data.success) {
-					//TODO delete!!
 					ToastWrapper.error(data.error.message);
+				} else {
+					dispatch(MovieReducer.actions.addReview({
+						review: {
+							...data.payload,
+							user: { id: userId, name }
+						}
+					}));
 				}
+
 			} catch (e) {
 				console.error(e);
 			}
 		};
 	}
 
+	static restore() {
+		return (dispatch, getState) => {
+			dispatch(MovieReducer.actions.restore());
+		};
+	}
 }

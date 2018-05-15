@@ -1,10 +1,20 @@
 .review_container {
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+
+	hr {
+		display: block;
+		height: 1px;
+		border: 0;
+		border-top: 1px solid $header-color;
+		margin: 1em 0;
+		padding: 0;
+	}
 
 	.reviews_list {
-		max-width: 50vh;
-		min-width: 50vh;
+		max-width: 65vh;
+		min-width: 65vh;
 
 		.review_item {
 			background: $header-color;
@@ -12,23 +22,69 @@
 			margin-top: 20px;
 			border-radius: 25px;
 
-			.datestamp{
+			.datestamp {
 				text-align: right;
 				opacity: 0.5;
 				font-size: 80%;
 			}
 		}
 	}
+
+	.review_rating {
+		min-height: 40px;
+		min-width: 40px;
+		height: 40px;
+		width: 40px;
+		border-radius: 50%;
+		border: 2px solid #FFFFFF;
+		line-height: 43px;
+		text-align: center;
+		font-weight: bold;
+	}
+
+	.a_m {
+		display: flex;
+		justify-content: space-between;
+
+		a {
+			color: black;
+			font-weight: bold;
+			font-size: 110%;
+		}
+	}
+
+	.review_input{
+
+		input[type=text], select, textarea {
+			width: 100%;
+			padding: 14px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+			margin-top: 6px;
+			margin-bottom: 16px;
+			resize: vertical;
+		}
+
+		input[type=submit] {
+			background-color: #4CAF50;
+			color: white;
+			padding: 12px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		input[type=submit]:hover {
+			background-color: #45a049;
+		}
+
+		.container {
+			border-radius: 5px;
+			background-color: #f2f2f2;
+			padding: 20px;
+		}
+	}
 }
 
-.rating {
-	min-height: 40px;
-	min-width: 40px;
-	height: 40px;
-	width: 40px;
-	border-radius: 50%;
-	border: 2px solid #FFFFFF;
-	line-height: 65px;
-	text-align: center;
-	font-weight: bold;
-}
+

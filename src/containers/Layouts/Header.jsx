@@ -21,7 +21,7 @@ class Header extends React.PureComponent {
 				</div>
 				{this.props.isAuth ?
 					(<div className="buttons">
-						<NavLink to="/profile" exact className="item">
+						<NavLink to={`/profile/${this.props.userId}`} exact className="item">
 							PROFILE
 						</NavLink>
 						<NavLink to="/" exact className="item" onClick={this.props.logout}>
@@ -43,6 +43,7 @@ class Header extends React.PureComponent {
 export default connect(
 	state => ({
 		isAuth: state.user.get("isAuth"),
+		userId: state.user.get("userId"),
 	}),
 	dispatch => ({
 		logout: () => dispatch(UserActions.logout())

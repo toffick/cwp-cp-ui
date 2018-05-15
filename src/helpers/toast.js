@@ -1,7 +1,7 @@
-import { toast } from "react-toastify";
+import { toast } from 'react-toastify';
 
 export default class ToastWrapper{
-	static warn(){
+	static warn(message){
 		toast.warn(JSON.stringify(message), {
 			position: toast.POSITION.TOP_RIGHT,
 			autoClose: 3000,

@@ -3,9 +3,10 @@ import { connect } from "react-redux";
 import MovieActions from "../../../actions/MovieActions";
 import NoMatch from "../NoMatch";
 import { NavLink } from "react-router-dom";
-import ReviewsList from "./ReviewsList";
+import ReviewsList from "../../../components/ReviewsList";
 import ReviewInput from "./ReviewInput";
 
+//TODO не сразу удаляется состояние стэйта
 class Movie extends React.PureComponent {
 
 	componentWillMount() {
@@ -13,12 +14,16 @@ class Movie extends React.PureComponent {
 		this.props.getMovie(id);
 	}
 
+	componentDidMount() {
+		this.props.restore();
+		window.scrollTo(0, 0)
+	}
+
 	_getActors(actors) {
 		return actors.map(actor => (<NavLink to={`/actors/${actor.id}`}>{actor.name} </NavLink>))
 	}
 
 	render() {
-		console.log(this.props, 'render');
 		if (this.props.error) {
 			return (<NoMatch message={this.props.error}/>)
 		}
@@ -34,7 +39,10 @@ class Movie extends React.PureComponent {
 							<span className="rating">{rating.toFixed(1)}</span>
 						</div>
 
+
 						<table>
+							<thead></thead>
+							<tbody>
 							<tr>
 								<td>Director:</td>
 								<td><b>{director}</b></td>
@@ -51,13 +59,15 @@ class Movie extends React.PureComponent {
 								<td>Runtime:</td>
 								<td><b>{runtime}</b></td>
 							</tr>
+							</tbody>
 						</table>
 						<p>{plot}</p>
 
 					</div>
 				</div>
+				<hr/>
 				<div className="review_container">
-					<ReviewInput addReview={this.props.addReview}/>
+					{this.props.isAuth? <ReviewInput addReview={this.props.addReview}/>: null}
 					<ReviewsList reviews={this.props.reviews}/>
 				</div>
 			</div>
@@ -69,10 +79,12 @@ export default connect(
 	state => ({
 		movie: state.movie.get('movie'),
 		error: state.movie.get('error'),
-		reviews: state.movie.get('reviews')
+		reviews: state.movie.get('reviews'),
+		isAuth: state.user.get('isAuth')
 	}),
 	dispatch => ({
 		getMovie: (id) => dispatch(MovieActions.getMovie(id)),
 		addReview: (review) => dispatch(MovieActions.addReview(review)),
+		restore: () => dispatch(MovieActions.restore()),
 	}),
 )(Movie);

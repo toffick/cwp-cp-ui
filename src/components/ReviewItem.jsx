@@ -9,11 +9,17 @@ export default class ReviewItem extends React.PureComponent {
 	}
 
 	render() {
-		const { text, mark, user } = this.props.review;
+		const { text, mark, user, movie } = this.props.review;
 		return (
 			<div className="review_item">
-				<div>
-					<NavLink to={`/profile/${user.id}`}>{user.name}</NavLink> <span className="rating">{mark}</span>
+				<div className="a_m">
+					{
+						user ?
+							<div><NavLink to={`/profile/${user.id}`}>{user.name}</NavLink></div>
+							:
+							<div><NavLink to={`/movies/${movie.id}`}>{movie.title}</NavLink></div>
+					}
+					<div className="review_rating">{mark}</div>
 				</div>
 				<p>{text}</p>
 				<div className="datestamp">{this._getFormattedDate()}</div>

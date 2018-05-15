@@ -5,6 +5,7 @@ const initialState = Map({
 	isAuth: false,
 	userId: null,
 	role: '',
+	name: ''
 });
 
 export default createModule({
@@ -13,14 +14,14 @@ export default createModule({
 	transformations: {
 		signIn: {
 			reducer: (state, { payload }) => {
-				const { userId, role } = payload;
+				const { userId, role, name } = payload;
 
-				return state.set('userId', userId).set('isAuth', true).set('role', role);
+				return state.set('userId', userId).set('isAuth', true).set('role', role).set('name', name);
 			}
 		},
 		logout: {
 			reducer: (state, { payload }) => {
-				return state.set('userId', null).set('isAuth', false).set('role', '');
+				return state.set('userId', null).set('isAuth', false).set('role', '').set('name', name);
 			}
 		}
 	},
