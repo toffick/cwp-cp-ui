@@ -15,7 +15,7 @@ export default class MoviesActions {
 				const { pagination } = data.payload.meta;
 
 				dispatch(MoviesReducer.actions.setMovies({ movies }));
-				dispatch(MoviesReducer.actions.setPagination({ pagination}));
+				dispatch(MoviesReducer.actions.setPagination({ pagination }));
 			} catch (e) {
 				console.error(e);
 			}

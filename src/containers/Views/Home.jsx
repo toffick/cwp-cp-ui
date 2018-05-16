@@ -8,7 +8,11 @@ export default class Home extends React.Component {
 
 	render() {
 		return (
-			<h1>Home 1</h1>
+			<div>
+				<h1>Welcome to SinRtgn </h1>
+				<p>Here you can see the films you are interested in and rate with the review to
+					everyone. You can also watch the actors and the filmography of each	</p>
+			</div>
 		);
 	}
 

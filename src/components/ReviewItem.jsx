@@ -10,6 +10,7 @@ export default class ReviewItem extends React.PureComponent {
 
 	render() {
 		const { text, mark, user, movie } = this.props.review;
+
 		return (
 			<div className="review_item">
 				<div className="a_m">

@@ -23,11 +23,11 @@ export default createModule({
 		error: null
 	}),
 	transformations: {
-		setMovie: {
+		setMovieReviews: {
 			reducer: (state, { payload }) => {
-				const { movie } = payload;
+				const { movie, reviews } = payload;
 
-				return state.set('movie', movie);
+				return state.set('movie', movie).set('reviews', reviews);
 			}
 		},
 		setError: {
@@ -35,13 +35,6 @@ export default createModule({
 				const { error } = payload;
 
 				return state.set('error', error);
-			}
-		},
-		setReviews: {
-			reducer: (state, { payload }) => {
-				const { reviews } = payload;
-
-				return state.set('reviews', reviews);
 			}
 		},
 		addReview: {
@@ -55,6 +48,7 @@ export default createModule({
 		},
 		restore: {
 			reducer: (state, { payload }) => {
+
 				return state.set('reviews', []).set('movies', { ...initMovie }).set('error', null);
 			}
 		}

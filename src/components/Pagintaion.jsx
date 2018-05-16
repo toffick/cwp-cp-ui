@@ -3,15 +3,19 @@ import React from 'react';
 export default class Pagination extends React.Component {
 
 	onClickHandler(value) {
-		this.props.changeParameters({ page: value });
-		this.props.setItems();
+		//TODO
+		if (this.props.pagination.last !== 1) {
+			this.props.changeParameters({ page: value });
+			this.props.setItems();
+		}
 	}
 
 	getPagintion() {
 		const paginationObj = this.props.pagination;
 		const paginationButtons = [];
 
-		paginationButtons.push((<a key="1" style={{fontWeight: 'bold'}} onClick={e => this.onClickHandler(paginationObj.first)}>{'<<'}</a>))
+		paginationButtons.push((<a key="1" style={{ fontWeight: 'bold' }}
+								   onClick={e => this.onClickHandler(paginationObj.first)}>{'<<'}</a>))
 
 		if (paginationObj.prevprev) {
 			paginationButtons.push((
@@ -19,7 +23,8 @@ export default class Pagination extends React.Component {
 		}
 
 		if (paginationObj.prev) {
-			paginationButtons.push((<a key="3" onClick={e => this.onClickHandler(paginationObj.prev)}>{paginationObj.prev}</a>))
+			paginationButtons.push((
+				<a key="3" onClick={e => this.onClickHandler(paginationObj.prev)}>{paginationObj.prev}</a>))
 		}
 
 		paginationButtons.push((
@@ -36,7 +41,8 @@ export default class Pagination extends React.Component {
 				<a key="6" onClick={e => this.onClickHandler(paginationObj.nextnext)}>{paginationObj.nextnext}</a>))
 		}
 
-		paginationButtons.push((<a key="7" style={{fontWeight: 'bold'}} onClick={e => this.onClickHandler(paginationObj.last)}>{'>>'}</a>))
+		paginationButtons.push((<a key="7" style={{ fontWeight: 'bold' }}
+								   onClick={e => this.onClickHandler(paginationObj.last)}>{'>>'}</a>))
 
 		return paginationButtons;
 	}

@@ -14,9 +14,13 @@ class Actor extends React.PureComponent {
 		this.props.getActor(id);
 	}
 
+
 	componentDidMount() {
-		this.props.restore();
 		window.scrollTo(0, 0)
+	}
+
+	componentWillUnmount() {
+		this.props.restore();
 	}
 
 	getAverageRating() {

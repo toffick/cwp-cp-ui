@@ -20,8 +20,11 @@ class MoviesListContainer extends React.Component {
 	}
 
 	componentDidMount() {
-		this.props.resetParameters();
 		window.scrollTo(0, 0)
+	}
+
+	componentWillUnmount() {
+		this.props.resetParameters();
 	}
 
 	render() {
@@ -32,6 +35,7 @@ class MoviesListContainer extends React.Component {
 					addFilterHundler={this.props.addFilter}
 					removeFilterHundler={this.props.removeFilter}
 					setMovies={this.props.setMovies}
+					sort={this.props.parameters.sort}
 				/>
 				<div className="movies_list">
 					<hr/>
@@ -53,7 +57,8 @@ class MoviesListContainer extends React.Component {
 export default connect(
 	state => ({
 		moviesList: state.movies.get('movies'),
-		pagination: state.movies.get('pagination')
+		pagination: state.movies.get('pagination'),
+		parameters: state.movies.get('parameters'),
 	}),
 	dispatch => ({
 		setMovies: () => dispatch(MoviesActions.setMovies()),

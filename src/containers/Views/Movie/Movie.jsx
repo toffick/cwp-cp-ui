@@ -15,18 +15,22 @@ class Movie extends React.PureComponent {
 	}
 
 	componentDidMount() {
-		this.props.restore();
 		window.scrollTo(0, 0)
 	}
 
+	componentWillUnmount() {
+		this.props.restore();
+	}
+
 	_getActors(actors) {
-		return actors.map(actor => (<NavLink to={`/actors/${actor.id}`}>{actor.name} </NavLink>))
+		return actors.map((actor, i) => (<NavLink key={i} to={`/actors/${actor.id}`}>{actor.name} </NavLink>))
 	}
 
 	render() {
 		if (this.props.error) {
 			return (<NoMatch message={this.props.error}/>)
 		}
+
 		const { posterUrl, rating, genres, title, year, plot, actors, runtime, director } = this.props.movie;
 
 		return (
@@ -57,7 +61,7 @@ class Movie extends React.PureComponent {
 							</tr>
 							<tr>
 								<td>Runtime:</td>
-								<td><b>{runtime}</b></td>
+								<td><b>{runtime}</b> min</td>
 							</tr>
 							</tbody>
 						</table>

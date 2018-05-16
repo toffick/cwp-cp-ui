@@ -2,7 +2,7 @@ import React from 'react';
 import Input from '../../../components/Input';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
-import { validateName, validatePassword, validatePostingPrivateKey } from '../../../helpers/auth';
+import { validateEmail, validateName, validatePassword, validatePostingPrivateKey } from '../../../helpers/auth';
 import UserActions from "../../../actions/UserActions";
 
 class SignIn extends React.Component {
@@ -37,14 +37,12 @@ class SignIn extends React.Component {
 						<p className="auth-wrap-lead">Please enter your Email and password.</p>
 
 						<div className="clearfix">
-							{/*TODO add validation*/}
 							<Input
 								label="Email"
 								ref={(node) => {
 									this.email = node;
 								}}
-								validation={() => {
-								}}
+								validation={validateEmail}
 							/>
 							<Input
 								label="Password"

@@ -11,8 +11,7 @@ export default class MovieActions {
 				if (!data.success) {
 					dispatch(MovieReducer.actions.setError({ error: data.error.message }));
 				} else {
-					dispatch(MovieReducer.actions.setMovie({ movie: data.payload }));
-					dispatch(MovieReducer.actions.setReviews({ reviews: data.payload.reviews }));
+					dispatch(MovieReducer.actions.setMovieReviews({ movie: data.payload, reviews: data.payload.reviews }));
 				}
 			} catch (e) {
 				console.error(e);

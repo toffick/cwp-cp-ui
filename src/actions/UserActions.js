@@ -33,10 +33,11 @@ export default class UserActions {
 				});
 
 				if (!data.success) {
-					ToastWrapper.success(data.error.message);
+					ToastWrapper.error(data.error.message);
 				} else {
 					ToastWrapper.success(data.payload.message);
 				}
+
 			} catch (e) {
 				console.error(e);
 			}

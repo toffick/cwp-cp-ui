@@ -15,13 +15,15 @@
 
 	.filter {
 		display: flex;
-		min-width: 30vh;
-		height: 30vh;
+		//min-width: 30vh;
+		width: auto;
+		height: auto;
 		margin-right: 2vh;
 		margin-top: 2vh;
-		padding: 2vh;
+		padding: 4vh;
 		justify-content: space-around;
 		border: 1px solid $header-color;
+		position: fixed;
 
 		.genres_list {
 			ul {
@@ -56,6 +58,17 @@
 			justify-content: space-between;
 			align-items: center;
 
+			.sorts{
+				padding-top: 15px;
+				padding-bottom: 15px;
+				font-size: 120%;
+
+				&_item{
+					display: flex;
+					justify-content: space-between;
+				}
+			}
+
 			.range_inputs_item {
 				padding-bottom: 30px;
 				width: 25vh;
@@ -87,6 +100,7 @@
 
 	.movies_list {
 		width: 100%;
+		padding-left: 40vh;
 
 		ul {
 			margin: 0;
