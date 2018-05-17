@@ -24,12 +24,13 @@ export default class UserActions {
 		};
 	}
 
-	static signUp(email, password) {
+	static signUp(email, password, name) {
 		return async (dispatch, getState) => {
 			try {
 				const { data } = await ServerApiInstance.createPost('/auth/registration', {
 					email,
-					password
+					password,
+					name
 				});
 
 				if (!data.success) {
@@ -47,12 +48,12 @@ export default class UserActions {
 	static logout() {
 		return async (dispatch, getState) => {
 			try {
+				dispatch(UserReducer.actions.logout());
+
 				const { data } = await ServerApiInstance.createPost('/auth/logout');
 
 				if (!data.success) {
 					ToastWrapper.warn(data.error.message);
-				} else {
-					dispatch(UserReducer.actions.logout());
 				}
 			} catch (e) {
 				console.error(e);

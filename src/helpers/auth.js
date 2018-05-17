@@ -8,7 +8,7 @@ export const validateName = (name) => {
 };
 
 export const validatePassword = (password) => {
-	if (!password || password.length < 9) { return 'Too short password'; }
+	if (!password || password.length < 5) { return 'Too short password (minimum 5 symbols)'; }
 	if (/[^A-Za-z0-9!@#$%_-]/.test(password)) { return 'Password should only consists of: A-Za-z0-9!@#$%_-'; }
 	return null;
 };

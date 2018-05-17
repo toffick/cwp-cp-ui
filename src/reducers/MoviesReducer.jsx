@@ -28,8 +28,7 @@ export default createModule({
 		changeParameters: {
 			reducer: (state, { payload }) => {
 				const { parameters } = payload;
-				console.log(parameters);
-				return state.set('parameters', { ...state.get('parameters'), ...parameters });
+ 				return state.set('parameters', { ...state.get('parameters'), ...parameters });
 			}
 		},
 		addFilter: {

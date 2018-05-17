@@ -25,8 +25,9 @@ class SignUp extends React.Component {
 
 		const email = this.email.value;
 		const password = this.password.value;
+		const name = this.name.value;
 
-		this.props.signUp(email, password);
+		this.props.signUp(email, password, name);
 		this.setState({ isRegistered: true });
 	}
 
@@ -49,6 +50,16 @@ class SignUp extends React.Component {
 								this.email = node;
 							}}
 							validation={validateEmail}
+						/>
+
+						<Input
+							label="Name"
+							type="text"
+							requiered
+							ref={(node) => {
+								this.name = node;
+							}}
+							validation={()=>{}}
 						/>
 						<Input
 							label="Password"

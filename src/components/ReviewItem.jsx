@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 export default class ReviewItem extends React.PureComponent {
 
 	_getFormattedDate() {
-		const d = new Date(this.props.review.datestamp);
+		const d =  this.props.review.user? new Date(this.props.review.datestamp) : new Date();
 		return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
 	}
 

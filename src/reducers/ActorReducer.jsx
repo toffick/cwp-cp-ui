@@ -26,7 +26,7 @@ export default createModule({
 		setMovies: {
 			reducer: (state, { payload }) => {
 				const { movies } = payload;
-				console.log(state.get('actor'));
+
 				return state.set('movies', movies);
 			}
 		},

@@ -12,16 +12,13 @@ class Profile extends React.Component {
 		this.state = { info: {}, reviews: [] };
 	}
 
-	componentWillMount() {
+	componentDidMount() {
+		window.scrollTo(0, 0);
+
 		ServerApiInstance.createGet(`/api/v1/users/${this.props.match.params.id}/profile`)
 			.then(({ data }) => {
 				this.setState({ reviews: data.payload.reviews, info: data.payload })
 			});
-
-	}
-
-	componentDidMount() {
-		window.scrollTo(0, 0)
 	}
 
 	getAverage() {
@@ -33,10 +30,6 @@ class Profile extends React.Component {
 	}
 
 	render() {
-		if (!this.props.isAuth) {
-			return <Redirect to="/"/>;
-		}
-
 		return (
 
 			<div className="review_container profile_container">
