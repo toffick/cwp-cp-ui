@@ -12,6 +12,7 @@
 @import "components/_review";
 @import "components/_profile";
 @import "components/_actor";
+@import "components/_actors";
 
 html, body {
 	margin: 0;
@@ -25,4 +26,9 @@ html, body {
 
 .footer{
 	height: 7vh;
+}
+
+.header__items{
+	height: 7vh;
+	display: flex;
 }

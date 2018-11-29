@@ -25,8 +25,8 @@ class Profile extends React.Component {
 		let mark = 0;
 
 		this.state.reviews.forEach(item => mark += item.mark);
-
-		return (mark / this.state.reviews.length).toFixed(1);
+		console.log(this.state.reviews.length !== 0 ? (mark / this.state.reviews.length).toFixed(1) : 'None');
+		return this.state.reviews.length !== 0 ? (mark / this.state.reviews.length).toFixed(1) : 'None';
 	}
 
 	render() {
@@ -35,31 +35,31 @@ class Profile extends React.Component {
 			<div className="review_container profile_container">
 				<div className="info">
 					<h1>Profile</h1>
-					<table style={{minWidth: '45vh'}}>
+					<table style={{ minWidth: '45vh' }}>
 						<thead></thead>
 						<tbody>
 						<tr>
 							<td>Name</td>
-							<td style={{textAlign: 'right'}}><b>{this.state.info.name}</b></td>
+							<td style={{ textAlign: 'right' }}><b>{this.state.info.name}</b></td>
 						</tr>
 						<tr>
 							<td>Email</td>
-							<td style={{textAlign: 'right'}}><i>{this.state.info.email}</i></td>
+							<td style={{ textAlign: 'right' }}><i>{this.state.info.email}</i></td>
 						</tr>
 						<tr>
 							<td>Role</td>
-							<td style={{textAlign: 'right'}}>{this.state.info.role}</td>
+							<td style={{ textAlign: 'right' }}>{this.state.info.role}</td>
 						</tr>
 						<tr>
 							<td>Average mark</td>
-							<td style={{textAlign: 'right'}}>{this.getAverage()}</td>
+							<td style={{ textAlign: 'right' }}>{this.getAverage()}</td>
 						</tr>
 						</tbody>
 					</table>
 				</div>
 				<br/>
 				<br/>
-				<p style={{textAlign: 'left'}}>The list of all user's reviews({this.state.reviews.length})</p>
+				<p style={{ textAlign: 'left' }}>The list of all user's reviews({this.state.reviews.length})</p>
 				<ReviewsList reviews={this.state.reviews}/>
 			</div>);
 	}

@@ -1,0 +1,57 @@
+.grid-container {
+	display: grid;
+	grid-template-columns: 33.333% 33.333% 33.333%;
+	padding: 10px;
+	max-width: 820px;
+}
+
+.grid-item-container {
+
+	display: flex;
+	justify-content: center;
+
+}
+
+.grid-item {
+	background-color: $header-color;
+	padding: 20px;
+
+	display: inline-block;
+	vertical-align: top; /* Adjust if multi-line text */
+	margin: 1vh;
+	text-decoration: none;
+	min-width: 220px;
+	max-width: 220px;
+	color: white;
+
+	&:hover {
+		color: black;
+		background-color: #42a7ac;
+
+	}
+
+}
+
+
+.img-wrap {
+
+	overflow: hidden;
+	height: 230px;
+	max-height: 230px;
+	position: relative;
+
+	img {
+		display: block;
+		width: 100%;
+		height: auto;
+		bottom: 0;
+	}
+}
+
+.actor_name{
+	font-size: 22px;
+	text-decoration: none;
+	text-align: center;
+	padding-top: 20px;
+	font-weight: bold;
+}

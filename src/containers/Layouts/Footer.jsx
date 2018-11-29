@@ -1,19 +1,13 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
 
 class FooterLeftMetaBlocks extends React.PureComponent {
 	render() {
 		return (
 			<div >
 				<div className="layout__footer__item">
-					<a href="https://github.com/toffick/cwp-cp-server" target="_blank">
+					<a href="https://github.com/toffick/cwp-cp-ui" target="_blank">
 						Source code
 					</a>
-				</div>
-				<div className="layout__footer__item">
-					<NavLink to="/contacts" exact>
-						Contacts
-					</NavLink>
 				</div>
 			</div>
 		)

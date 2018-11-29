@@ -26,7 +26,7 @@ export default class ReviewInput extends React.PureComponent {
 		}
 
 		this.props.addReview({ mark: this.state.mark, text: this.state.review, datestamp: Date.now() });
-		this.setState({mark: 1, text: ''});
+		this.setState({mark: 1, review: ''});
 	}
 
 	render() {
@@ -36,7 +36,7 @@ export default class ReviewInput extends React.PureComponent {
 				<div className="container">
 					<form onSubmit={e => this.handleSubmit(e)}>
 						<label htmlFor="mark">Your mark</label>
-						<select id="country" name="mark" onChange={e => this.setState({ mark: +e.target.value })}>
+						<select id="country" name="mark" value={this.state.mark} onChange={e => this.setState({ mark: +e.target.value })}>
 							{'pashalka)0'.split('').map((_, i) => <option key={i}>{i + 1}</option>)}
 						</select>
 
