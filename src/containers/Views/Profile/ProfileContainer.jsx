@@ -25,7 +25,6 @@ class Profile extends React.Component {
 		let mark = 0;
 
 		this.state.reviews.forEach(item => mark += item.mark);
-		console.log(this.state.reviews.length !== 0 ? (mark / this.state.reviews.length).toFixed(1) : 'None');
 		return this.state.reviews.length !== 0 ? (mark / this.state.reviews.length).toFixed(1) : 'None';
 	}
 

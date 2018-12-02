@@ -43,8 +43,7 @@ export default class Pagination extends React.Component {
 
 		paginationButtons.push((<a key="7" style={{ fontWeight: 'bold' }}
 								   onClick={e => this.onClickHandler(paginationObj.last)}>{'>>'}</a>))
-
-		return paginationButtons;
+        return paginationButtons;
 	}
 
 	render() {

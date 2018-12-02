@@ -2,6 +2,7 @@
 	"queryOperators": {
 		"EQUAL": "eq",
 		"GREATE": "gte",
-		"LESSE": "lte"
+		"LESSE": "lte",
+		"LIKE": "like"
 	}
 }

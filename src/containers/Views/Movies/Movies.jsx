@@ -28,9 +28,9 @@ class MoviesListContainer extends React.Component {
         return (
             <div className="movies_container">
                 <FilterDashboard
-                    changeParametersHundler={this.props.changeParameters}
-                    addFilterHundler={this.props.addFilter}
-                    removeFilterHundler={this.props.removeFilter}
+                    changeParametersHandler={this.props.changeParameters}
+                    addFilterHandler={this.props.addFilter}
+                    removeFilterHandler={this.props.removeFilter}
                     setMovies={this.props.setMovies}
                     sort={this.props.parameters.sort}
                 />

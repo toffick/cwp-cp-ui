@@ -11,7 +11,7 @@ export default class ActorsActions {
 				};
 				const { data } = await ServerApiInstance.createGet('/api/v1/actors', { ...parameters });
 
-				const { actors } = data.payload;
+                const { actors } = data.payload;
                 const { pagination } = data.payload.meta;
 
                 //TODO говно, не делайте так
@@ -31,7 +31,7 @@ export default class ActorsActions {
 
 	static addFilter(filter) {
 		return async (dispatch, getState) => {
-			dispatch(ActorsReducer.actions.addFilter({ filter }));
+            dispatch(ActorsReducer.actions.addFilter({ filter }));
 		}
 	}
 

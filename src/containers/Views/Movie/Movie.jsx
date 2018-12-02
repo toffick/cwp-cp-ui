@@ -23,7 +23,7 @@ class Movie extends React.PureComponent {
 	}
 
 	_getActors(actors) {
-		return actors.map((actor, i) => (<NavLink key={i} to={`/actors/${actor.id}`}>{actor.name} </NavLink>))
+		return actors.map((actor, i) => (<NavLink  className="link" key={i} to={`/actors/${actor.id}`}>{actor.name} </NavLink>))
 	}
 
 	render() {

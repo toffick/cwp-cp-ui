@@ -4,7 +4,7 @@ import { Map } from "immutable";
 const initParameters = {
 	limit: 5,
 	page: 1,
-	sort: { name: 'rating', side: 'desc'}
+	sort: { name: 'year', side: 'desc'}
 };
 
 export default createModule({

@@ -42,7 +42,7 @@ class Actor extends React.PureComponent {
             (
                 <li key={i}>
                     <NavLink to={`/movies/${movie.id}`}
-                             className="movie_link"><span>{movie.title}({movie.year})</span></NavLink>
+                             className="link"><span>{movie.title}({movie.year})</span></NavLink>
                 </li>
             ))
     }
@@ -78,6 +78,10 @@ class Actor extends React.PureComponent {
                             <tr>
                                 <td>Average rating:</td>
                                 <td><b>{averageRating}</b></td>
+                            </tr>
+                            <tr>
+                                <td>Country:</td>
+                                <td><b>{actor.country}</b></td>
                             </tr>
                             </tbody>
                         </table>

@@ -3,7 +3,8 @@ import React from 'react';
 export default class ActorItem extends React.PureComponent {
 
     render() {
-        const {id, name, photoUrl, bday} = this.props.actor;
+        const {name, photoUrl, bday} = this.props.actor;
+
         return (
             <React.Fragment>
                 <div className="img-wrap">
@@ -11,6 +12,7 @@ export default class ActorItem extends React.PureComponent {
                 </div>
                 <div className="actor_name">
                     <span>{name.replace(/\((.+)\)/, '').trim()}</span>
+                    <span className="year"><span style={{fontWeight : 'normal'}}>Born: </span>{bday}</span>
                 </div>
             </React.Fragment>
         );

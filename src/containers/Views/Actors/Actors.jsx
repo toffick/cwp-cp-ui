@@ -8,7 +8,6 @@ import {NavLink} from "react-router-dom";
 
 
 const ActorsList = (props) => {
-    console.log(props);
     const {actors} = props;
 
     return (
@@ -26,7 +25,6 @@ const ActorsList = (props) => {
     )
 }
 
-//TODO говно. дети, используейте PropTypes
 class Actors extends React.Component {
 
     componentDidMount() {
@@ -42,16 +40,15 @@ class Actors extends React.Component {
         return (
             <div className="movies_container">
                 <FilterDashboard
-                    changeParametersHundler={this.props.changeParameters}
-                    addFilterHundler={this.props.addFilter}
-                    removeFilterHundler={this.props.removeFilter}
-                    setMovies={this.props.setActors}
+                    addFilterHandler={this.props.addFilter}
+                    removeFilterHandler={this.props.removeFilter}
+                    setActors={this.props.setActors}
                     sort={this.props.parameters.sort}
                 />
                 {
                     this.props.actorsList.length ?
                         (<div className="movies_list">
-                            <hr style={{widht: '822px'}}/>
+                            <hr style={{width: '822px'}}/>
                             <ActorsList actors={this.props.actorsList}/>
                             <Pagination
                                 changeParameters={this.props.changeParameters}

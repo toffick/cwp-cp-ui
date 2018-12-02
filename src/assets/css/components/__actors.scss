@@ -25,9 +25,7 @@
 	color: white;
 
 	&:hover {
-		color: black;
-		background-color: #42a7ac;
-
+		background-color: $active-link-color;
 	}
 
 }
@@ -54,4 +52,13 @@
 	text-align: center;
 	padding-top: 20px;
 	font-weight: bold;
+
+	.year{
+		font-size: 15px;
+		display: block;
+	}
+}
+
+.filter_label{
+    margin-bottom: 10px;
 }

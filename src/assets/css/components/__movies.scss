@@ -18,39 +18,10 @@
 		//min-width: 30vh;
 		width: auto;
 		height: auto;
-		margin-right: 2vh;
-		margin-top: 2vh;
 		padding: 4vh;
 		justify-content: space-around;
 		border: 1px solid $header-color;
 		position: fixed;
-
-		.genres_list {
-			ul {
-				list-style-type: none;
-				-webkit-padding-start: 0;
-
-				li:not(:last-child) {
-					margin-bottom: 4px;
-				}
-			}
-
-			.item_active {
-				font-weight: bold;
-				cursor: pointer;
-			}
-
-			.item_inactive {
-				font-weight: bold;
-				cursor: pointer;
-				color: #7e8883;
-				opacity: 0.7;
-				&:hover {
-					color: #111111;
-					opacity: 1;
-				}
-			}
-		}
 
 		.filter_options {
 			display: flex;
