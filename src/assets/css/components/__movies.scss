@@ -1,137 +1,132 @@
 .movies_container {
-	display: flex;
-	justify-content: stretch;
-	min-height: 100%;
-	width: 100%;
+  display: flex;
 
-	hr {
-		display: block;
-		height: 1px;
-		border: 0;
-		border-top: 1px solid $header-color;
-		margin: 1em 0;
-		padding: 0;
-	}
+  hr {
+    border-top: 1px solid #23ddde;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 
-	.filter {
-		display: flex;
-		//min-width: 30vh;
-		width: auto;
-		height: auto;
-		padding: 4vh;
-		justify-content: space-around;
-		border: 1px solid $header-color;
-		position: fixed;
+  .filter__container{
 
-		.filter_options {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			align-items: center;
+  }
 
-			.sorts{
-				padding-top: 15px;
-				padding-bottom: 15px;
-				font-size: 120%;
+  .filter {
+    display: flex;
+    min-width: 230px;
+    max-width: 230px;
+    min-height: 300px;
+    max-height: 300px;
+    padding: 4vh;
+    justify-content: space-around;
 
-				&_item{
-					display: flex;
-					justify-content: space-between;
-				}
-			}
+    .filter_options {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
 
-			.range_inputs_item {
-				padding-bottom: 30px;
-				width: 25vh;
-				text-align: center;
-				position: inherit;
+      .sorts {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-size: 120%;
 
-			}
+        &_item {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
 
-			.button {
-				background-color: $header-color;
-				border: none;
-				color: white;
-				padding: 15px 32px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				font-size: 16px;
-				position: inherit;
-				bottom: 0;
-				max-width: 10vh;
+      .range_inputs_item {
+        text-align: center;
+        padding-bottom: 15px;
+      }
 
-				&:hover {
-					cursor: pointer;
-					background-color: $active-link-color;
-				}
-			}
-		}
-	}
+      .button {
+        background-color: $header-color;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        position: inherit;
+        bottom: 0;
+        max-width: 10vh;
 
-	.movies_list {
-		width: 100%;
-		padding-left: 40vh;
+        &:hover {
+          cursor: pointer;
+          background-color: $active-link-color;
+        }
+      }
+    }
+  }
 
-		ul {
-			margin: 0;
-			padding: 0;
-			list-style-type: none;
-		}
-	}
+  .movies_list {
+    width: 100%;
+    max-width: 1200px;
+    min-width: 1200px;
+    margin: 0 30px 0 30px;
 
-	.movies_item {
-		display: flex;
-		padding: 2vh;
-		justify-content: stretch;
-		border: 2px;
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+  }
 
-		img {
-			max-width: 100%;
-			max-height: 100%;
-		}
+  .movies_item {
+    display: flex;
+    justify-content: stretch;
+    border: 2px;
 
-		.description {
-			padding-left: 2vh;
-			width: 100%;
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
 
-			.title_rating {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
+    .description {
+      padding-left: 2vh;
+      width: 100%;
 
-				&_link {
-					text-decoration: none;
-					color: #111111;
+      .title_rating {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-					&:hover {
-						cursor: pointer;
-						color: $active-link-color;
-					}
-				}
+        &_link {
+          text-decoration: none;
+          color: #111111;
 
-				h3 {
-					margin: 0;
-					padding: 0;
-				}
-			}
-		}
+          &:hover {
+            cursor: pointer;
+            color: $active-link-color;
+          }
+        }
 
-	}
+        h3 {
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+
+  }
 
 }
 
 .rating {
-	  min-height: 80px;
-	  min-width: 80px;
-	  height: 80px;
-	  width: 80px;
-	  border-radius: 50%;
-	  border: 3px solid $header-color;
-	  line-height: 80px;
-	  text-align: center;
-	  font-weight: bold;
-	font-size: 135%;
-  }
+  min-height: 80px;
+  min-width: 80px;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  border: 3px solid $header-color;
+  line-height: 80px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 135%;
+}
 
 //TODO спиннер!!

@@ -5,7 +5,7 @@ import FilterDashboard from './FilterActors';
 import Pagination from '../../../components/Pagintaion';
 import ActorItem from './ActorItem';
 import {NavLink} from "react-router-dom";
-
+import RecommendationsContainer from "../RecommendationsContainer";
 
 const ActorsList = (props) => {
     const {actors} = props;
@@ -38,7 +38,7 @@ class Actors extends React.Component {
 
     render() {
         return (
-            <div className="movies_container">
+            <div className="actors_container">
                 <FilterDashboard
                     addFilterHandler={this.props.addFilter}
                     removeFilterHandler={this.props.removeFilter}
@@ -47,7 +47,7 @@ class Actors extends React.Component {
                 />
                 {
                     this.props.actorsList.length ?
-                        (<div className="movies_list">
+                        (<div className="actors">
                             <hr style={{width: '822px'}}/>
                             <ActorsList actors={this.props.actorsList}/>
                             <Pagination
@@ -59,8 +59,8 @@ class Actors extends React.Component {
                         :
                         null
                 }
-
                 <br/>
+                <RecommendationsContainer/>
             </div>
         );
     }

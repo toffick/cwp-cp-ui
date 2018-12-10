@@ -46,7 +46,7 @@ export default class FilterDashboard extends React.Component {
     render() {
         return (
             <div className="filter">
-                <div className="filter_options">
+                <div className="filter_options" style={{justifyContent: ''}}>
                     <div className="filter_label">Enter name:</div>
                     <input onChange={this.onEnterValue} value={this.state.name}/>
                 </div>

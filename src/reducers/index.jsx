@@ -3,6 +3,7 @@ import MoviesReducer from './MoviesReducer';
 import MovieReducer from './MovieReducer';
 import ActorReducer from './ActorReducer';
 import ActorsReducer from './ActorsReducer';
+import RecommendationsReducer from './RecommendationsReducer';
 
 export default {
 	user: UserReducer.reducer,
@@ -10,4 +11,5 @@ export default {
 	movie: MovieReducer.reducer,
     actor: ActorReducer.reducer,
     actors: ActorsReducer.reducer,
+    recommendations: RecommendationsReducer.reducer,
 };

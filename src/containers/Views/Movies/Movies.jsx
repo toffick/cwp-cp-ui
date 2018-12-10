@@ -4,6 +4,7 @@ import MoviesActions from '../../../actions/MoviesActions';
 import FilterDashboard from './FilterMovies';
 import Pagination from '../../../components/Pagintaion';
 import MovieItem from './MovieItem';
+import RecommendationsContainer from '../RecommendationsContainer';
 
 class MoviesListContainer extends React.Component {
 
@@ -26,33 +27,34 @@ class MoviesListContainer extends React.Component {
 
     render() {
         return (
-            <div className="movies_container">
-                <FilterDashboard
-                    changeParametersHandler={this.props.changeParameters}
-                    addFilterHandler={this.props.addFilter}
-                    removeFilterHandler={this.props.removeFilter}
-                    setMovies={this.props.setMovies}
-                    sort={this.props.parameters.sort}
-                />
-                <div className="movies_list">
-                    <hr/>
-                    <ul>
-                        {this.getMovies()}
-                    </ul>
-                    {
-                        this.props.moviesList.length ?
-                            (<Pagination
-                                changeParameters={this.props.changeParameters}
-                                setItems={this.props.setMovies}
-                                pagination={this.props.pagination}
-                            />)
-                            :
-                            null
-                    }
+                <div className="movies_container">
+                    <FilterDashboard
+                        changeParametersHandler={this.props.changeParameters}
+                        addFilterHandler={this.props.addFilter}
+                        removeFilterHandler={this.props.removeFilter}
+                        setMovies={this.props.setMovies}
+                        sort={this.props.parameters.sort}
+                    />
+                    <div className="movies_list">
+                        <hr/>
+                        <ul>
+                            {this.getMovies()}
+                        </ul>
+                        {
+                            this.props.moviesList.length ?
+                                (<Pagination
+                                    changeParameters={this.props.changeParameters}
+                                    setItems={this.props.setMovies}
+                                    pagination={this.props.pagination}
+                                />)
+                                :
+                                null
+                        }
 
+                    </div>
+                    <br/>
+                    <RecommendationsContainer/>
                 </div>
-                <br/>
-            </div>
         );
     }
 }

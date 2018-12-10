@@ -1,3 +1,4 @@
+import RecommendationsReducer from '../reducers/RecommendationsReducer';
 import MoviesReducer from '../reducers/MoviesReducer';
 import ServerApiInstance from '../repositories/ServerApiInstance';
 
@@ -10,16 +11,21 @@ export default class MoviesActions {
                     filter: [...getState().movies.get('filters')]
                 };
                 const {data} = await ServerApiInstance.createGet('/api/v1/movies', {...parameters});
-                const {movies} = data.payload;
+
+                const {movies, recommendations} = data.payload;
+                const {pagination} = data.payload.meta;
 
                 if (!movies) {
                     return false;
                 }
 
-                const {pagination} = data.payload.meta;
-
                 dispatch(MoviesReducer.actions.setMovies({movies}));
                 dispatch(MoviesReducer.actions.setPagination({pagination}));
+
+                if (recommendations) {
+                    dispatch(RecommendationsReducer.actions.setRecommendations({recommendations}));
+                }
+
             } catch (e) {
                 console.error(e);
             }

@@ -1,5 +1,12 @@
-.movie_container {
-	width: 83%;
+.movie_container{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.movie {
+	max-width: 1200px;
+	min-width: 1200px;
 
 	hr {
 		display: block;

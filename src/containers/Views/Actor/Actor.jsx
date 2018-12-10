@@ -34,7 +34,7 @@ class Actor extends React.PureComponent {
         });
 
 
-        return count? (rating / count).toFixed(1) : '';
+        return count ? (rating / count).toFixed(1) : '';
     }
 
     getMomivesList() {
@@ -57,40 +57,42 @@ class Actor extends React.PureComponent {
         const averageRating = this.getAverageRating();
 
         return (
-            <div className="actor_container">
-                <div className="actors_item">
-                    <img src={actor.photoUrl}/>
-                    <div className="description">
-                        <div className="title_rating">
-                            <h2>{actor.name}</h2>
+            <div className="center">
+                <div className="actor_container">
+                    <div className="actors_item">
+                        <img src={actor.photoUrl}/>
+                        <div className="description">
+                            <div className="title_rating">
+                                <h2>{actor.name}</h2>
+                            </div>
+                            <table>
+                                <thead></thead>
+                                <tbody>
+                                <tr>
+                                    <td>Birthday:</td>
+                                    <td><b>{actor.bday}</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Movies count:</td>
+                                    <td>{this.props.movies.length}</td>
+                                </tr>
+                                <tr>
+                                    <td>Average rating:</td>
+                                    <td><b>{averageRating}</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Country:</td>
+                                    <td><b>{actor.country}</b></td>
+                                </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <table>
-                            <thead></thead>
-                            <tbody>
-                            <tr>
-                                <td>Birthday:</td>
-                                <td><b>{actor.bday}</b></td>
-                            </tr>
-                            <tr>
-                                <td>Movies count:</td>
-                                <td>{this.props.movies.length}</td>
-                            </tr>
-                            <tr>
-                                <td>Average rating:</td>
-                                <td><b>{averageRating}</b></td>
-                            </tr>
-                            <tr>
-                                <td>Country:</td>
-                                <td><b>{actor.country}</b></td>
-                            </tr>
-                            </tbody>
-                        </table>
                     </div>
-                </div>
-                <hr/>
-                <div className="filmography">
-                    <h3>Filmography</h3>
-                    {<ul>{this.getMomivesList()}</ul>}
+                    <hr/>
+                    <div className="filmography">
+                        <h3>Filmography</h3>
+                        {<ul>{this.getMomivesList()}</ul>}
+                    </div>
                 </div>
             </div>
         );
