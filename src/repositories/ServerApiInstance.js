@@ -11,7 +11,7 @@ class ServerApiInstance {
 			paramsSerializer: (params) => {
 
 				const serParams = querySerializer(params);
-				const queryString = qs.stringify(serParams, { indices: false, skipNulls: true });
+                const queryString = qs.stringify(serParams, { indices: false, skipNulls: true });
 
 				return queryString;
 			},
@@ -45,7 +45,8 @@ class ServerApiInstance {
 	 * @return {Promise}
 	 */
 	createGet(url, params) {
-		return axios(url,
+
+        return axios(url,
 			{
 				...this.defaultParams,
 				method: 'GET',

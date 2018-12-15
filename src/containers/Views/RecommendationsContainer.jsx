@@ -4,6 +4,10 @@ import {NavLink} from "react-router-dom";
 
 class RecommendationsContainer extends React.Component {
 
+    //TODO
+    //1. добавить расстояние между рекомендациями
+    //2. выровнять лоигн регитрацию и главную страницу
+
     _getRecommendationsList() {
         console.log(this.props.recommendations);
         return this.props.recommendations.map((item) =>
@@ -19,10 +23,15 @@ class RecommendationsContainer extends React.Component {
     render() {
         return (
             <div>
-                <div className="recommendations__items">
-                    <p className="title">Also recommended</p>
-                    {this._getRecommendationsList()}
-                </div>
+                {this.props.isAuth ?
+                    <div className="recommendations__items">
+                        <p className="title">Also recommended</p>
+                        {this._getRecommendationsList()}
+                    </div>
+                    :
+                    null
+                }
+
             </div>
         );
     }
@@ -31,6 +40,7 @@ class RecommendationsContainer extends React.Component {
 
 export default connect(
     state => ({
+        isAuth: state.user.get("isAuth"),
         recommendations: state.recommendations.get('recommendations'),
     }),
     dispatch => ({}),

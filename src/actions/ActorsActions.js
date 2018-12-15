@@ -1,5 +1,6 @@
 import ActorsReducer from '../reducers/ActorsReducer';
 import ServerApiInstance from '../repositories/ServerApiInstance';
+import RecommendationsReducer from "../reducers/RecommendationsReducer";
 
 export default class ActorsActions {
 	static setActors() {
@@ -11,12 +12,17 @@ export default class ActorsActions {
 				};
 				const { data } = await ServerApiInstance.createGet('/api/v1/actors', { ...parameters });
 
-                const { actors } = data.payload;
+                const { actors, recommendations } = data.payload;
                 const { pagination } = data.payload.meta;
 
                 //TODO говно, не делайте так
 				dispatch(ActorsReducer.actions.setActors({ actors }));
 				dispatch(ActorsReducer.actions.setPagination({ pagination }));
+
+                if (recommendations) {
+                    dispatch(RecommendationsReducer.actions.setRecommendations({recommendations}));
+                }
+
 			} catch (e) {
 				console.error(e);
 			}

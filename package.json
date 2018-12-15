@@ -26,6 +26,7 @@
     "history": "^4.7.2",
     "immutable": "^3.8.2",
     "moment": "^2.22.2",
+    "muicss": "^0.9.41",
     "node-sass": "^4.11.0",
     "prop-types": "^15.6.1",
     "qs": "^6.5.2",

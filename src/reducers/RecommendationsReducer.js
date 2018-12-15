@@ -12,7 +12,6 @@ export default createModule({
         setRecommendations: {
             reducer: (state, {payload}) => {
                 const {recommendations} = payload;
-                console.log(recommendations);
                 return state.set('recommendations', recommendations);
             }
         }

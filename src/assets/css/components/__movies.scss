@@ -42,24 +42,7 @@
         padding-bottom: 15px;
       }
 
-      .button {
-        background-color: $header-color;
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        position: inherit;
-        bottom: 0;
-        max-width: 10vh;
 
-        &:hover {
-          cursor: pointer;
-          background-color: $active-link-color;
-        }
-      }
     }
   }
 
@@ -129,4 +112,21 @@
   font-size: 135%;
 }
 
-//TODO спиннер!!
+.button {
+  background-color: $header-color;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  position: inherit;
+  bottom: 0;
+  max-width: 10vh;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $active-link-color;
+  }
+}

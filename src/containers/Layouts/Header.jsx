@@ -24,6 +24,11 @@ class Header extends React.PureComponent {
                             ACTORS
                         </NavLink>
                     </div>
+                    <div className="buttons">
+                        <NavLink to="/random-movie" exact className="item">
+                            RANDOM
+                        </NavLink>
+                    </div>
                 </div>
                 {this.props.isAuth ?
                     (<div className="buttons">

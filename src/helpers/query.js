@@ -20,7 +20,7 @@ export const querySerializer = (params) => {
     const normalizeField = fieldNormalizeCreator();
     const normalizeValue = valueNormalizeCreator();
 
-    if (params.filter.length) {
+    if (params.filter && params.filter.length) {
         params.filter = params.filter
             .map((item) => {
                 const {operator, value, name} = item;
