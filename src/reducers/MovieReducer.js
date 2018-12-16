@@ -42,8 +42,9 @@ export default createModule({
 				const { review } = payload;
 
 				const reviews = state.get('reviews');
-
-				return state.set('reviews', [review, ...reviews]);
+                console.log(review);
+                console.log(reviews);
+                return state.set('reviews', [review, ...reviews]);
 			}
 		},
 		restore: {

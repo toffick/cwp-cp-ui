@@ -15,6 +15,7 @@
 	.reviews_list {
 		max-width: 65vh;
 		min-width: 65vh;
+		padding-top: 4vh;
 
 		.review_item {
 			background: $header-color;
@@ -54,6 +55,7 @@
 	}
 
 	.review_input{
+		padding-top: 4vh;
 		input[type=text], select, textarea {
 			width: 100%;
 			padding: 14px;

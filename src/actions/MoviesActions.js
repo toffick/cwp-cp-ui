@@ -1,6 +1,7 @@
 import RecommendationsReducer from '../reducers/RecommendationsReducer';
 import MoviesReducer from '../reducers/MoviesReducer';
 import ServerApiInstance from '../repositories/ServerApiInstance';
+import ToastWrapper from "../helpers/toast";
 
 export default class MoviesActions {
     static setMovies() {
@@ -55,4 +56,17 @@ export default class MoviesActions {
             dispatch(MoviesReducer.actions.resetParameters());
         }
     }
+
+    static createMovie(movie){
+        return async () => {
+            const { data } = await ServerApiInstance.createPost('/api/v1/movies', movie);
+
+            if (!data.success) {
+                ToastWrapper.error(data.error.message);
+            } else {
+                ToastWrapper.info(`the movie with id ${data.payload.id} was successfully created`);
+            }
+        };
+    }
+
 }

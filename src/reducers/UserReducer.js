@@ -15,8 +15,7 @@ export default createModule({
 		signIn: {
 			reducer: (state, { payload }) => {
 				const { userId, role, name } = payload;
-
-				return state.set('userId', userId).set('isAuth', true).set('role', role).set('name', name);
+                return state.set('userId', userId).set('isAuth', true).set('role', role).set('name', name);
 			}
 		},
 		logout: {

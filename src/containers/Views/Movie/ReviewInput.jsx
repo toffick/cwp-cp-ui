@@ -1,7 +1,6 @@
 import React from 'react';
 import ToastWrapper from '../../../helpers/toast'
 
-//TODO нет имени сразу
 export default class ReviewInput extends React.PureComponent {
 
 	constructor(props) {

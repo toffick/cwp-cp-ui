@@ -16,7 +16,7 @@ export default class UserActions {
 					ToastWrapper.error(data.error.message);
 				} else {
 					const user = data.payload;
-					dispatch(UserReducer.actions.signIn({ userId: user.id, role: user.role, name: user.name }));
+                    dispatch(UserReducer.actions.signIn({ userId: user.id, role: user.role, name: user.name }));
 				}
 			} catch (e) {
 				console.error(e);
@@ -68,7 +68,7 @@ export default class UserActions {
 
 				if (data.success) {
 					const user = data.user;
-					dispatch(UserReducer.actions.signIn({ userId: user.id, role: user.role, name: user.name }));
+                    dispatch(UserReducer.actions.signIn({ userId: user.id, role: user.role, name: user.name }));
 				}
 			} catch (e) {
 				console.error(e);

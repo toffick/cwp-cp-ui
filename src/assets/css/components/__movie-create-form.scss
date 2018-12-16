@@ -1,0 +1,29 @@
+.movie__create__form__wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 30px;
+}
+
+
+.create__movie {
+  &__input {
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 15px;
+
+    input {
+      width: 250px;
+    }
+
+    textarea {
+      width: 250px;
+      height: 250px;
+    }
+  }
+}
+
+.form__error{
+  color: red;
+}

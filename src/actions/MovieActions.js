@@ -1,6 +1,7 @@
 import MovieReducer from '../reducers/MovieReducer';
 import ServerApiInstance from '../repositories/ServerApiInstance';
 import ToastWrapper from "../helpers/toast";
+import UserReducer from "../reducers/UserReducer";
 
 export default class MovieActions {
 	static getMovie(id) {
@@ -32,7 +33,7 @@ export default class MovieActions {
 					movieId: movie.id
 				});
 
-				if (!data.success) {
+                if (!data.success) {
 					ToastWrapper.error(data.error.message);
 				} else {
 					dispatch(MovieReducer.actions.addReview({
