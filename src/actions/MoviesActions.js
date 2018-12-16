@@ -64,7 +64,7 @@ export default class MoviesActions {
             if (!data.success) {
                 ToastWrapper.error(data.error.message);
             } else {
-                ToastWrapper.info(`the movie with id ${data.payload.id} was successfully created`);
+                ToastWrapper.success(`The movie with id ${data.payload.id} was successfully created`, 8000);
             }
         };
     }

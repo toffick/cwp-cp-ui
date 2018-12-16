@@ -1,60 +1,66 @@
-.movie_container{
-	width: 100%;
-	display: flex;
-	justify-content: center;
+.movie_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .movie {
-	max-width: 1200px;
-	min-width: 1200px;
+  max-width: 1200px;
+  min-width: 1200px;
 
-	hr {
-		display: block;
-		height: 1px;
-		border: 0;
-		border-top: 1px solid $header-color;
-		margin: 1em 0;
-		padding: 0;
-	}
+  hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid $header-color;
+    margin: 1em 0;
+    padding: 0;
+  }
 
-	.movies_item {
-		display: flex;
-		padding: 2vh;
-		justify-content: stretch;
-		border: 2px;
+  .movies_item {
+    display: flex;
+    padding: 2vh;
+    justify-content: stretch;
+    border: 2px;
 
-		img {
-			max-width: 350px;
-			max-height: 495px;
-		}
+    img {
+      max-width: 350px;
+      max-height: 495px;
+    }
 
-		.description {
-			padding-left: 2vh;
-			width: 100%;
+    .description {
+      padding-left: 2vh;
+      width: 100%;
+      max-width: 850px;
 
-			.title_rating {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
+      p {
+        max-width: 850px;
+        overflow-wrap: break-word;
+      }
 
-				&_link {
-					text-decoration: none;
-					color: #111111;
+      .title_rating {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-					&:hover {
-						cursor: pointer;
-						color: $active-link-color;
-					}
-				}
+        &_link {
+          text-decoration: none;
+          color: #111111;
 
-				h3 {
-					margin: 0;
-					padding: 0;
-				}
-			}
-		}
+          &:hover {
+            cursor: pointer;
+            color: $active-link-color;
+          }
+        }
 
-	}
+        h3 {
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+
+  }
 
 }
 

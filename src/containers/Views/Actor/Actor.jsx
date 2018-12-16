@@ -42,7 +42,7 @@ class Actor extends React.PureComponent {
             (
                 <li key={i}>
                     <NavLink to={`/movies/${movie.id}`}
-                             className="link"><span>{movie.title}({movie.year})</span></NavLink>
+                             className="link"><span>{movie.title} <small>({movie.year})</small></span></NavLink>
                 </li>
             ))
     }

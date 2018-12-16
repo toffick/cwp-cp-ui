@@ -72,6 +72,11 @@
       padding-left: 2vh;
       width: 100%;
 
+      p{
+        max-width: 850px;
+        overflow-wrap: break-word;
+      }
+
       .title_rating {
         display: flex;
         justify-content: space-between;

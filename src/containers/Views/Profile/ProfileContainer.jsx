@@ -31,9 +31,7 @@ class Profile extends React.Component {
 
     render() {
         const {isAuth, role} = this.props;
-        console.log(isAuth);
-        console.log(role);
-        console.log(isUserAdmin(role.name));
+
         return (
             <div style={{width: '100%', display: 'flex', justifyContent: 'center'}}>
                 <div className="review_container profile_container">
